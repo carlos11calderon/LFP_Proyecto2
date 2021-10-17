@@ -23,6 +23,7 @@ class Ui_MainWindow(object):
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setGeometry(QtCore.QRect(590, 40, 711, 611))
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.plainTextEdit_2.setReadOnly(True)
         self.lblCodigo = QtWidgets.QLabel(self.centralwidget)
         self.lblCodigo.setGeometry(QtCore.QRect(260, 10, 71, 31))
         font = QtGui.QFont()
