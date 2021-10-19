@@ -23,7 +23,6 @@ class Ui_MainWindow(object):
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setGeometry(QtCore.QRect(590, 40, 711, 611))
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
-        self.plainTextEdit_2.setReadOnly(True)
         self.lblCodigo = QtWidgets.QLabel(self.centralwidget)
         self.lblCodigo.setGeometry(QtCore.QRect(260, 10, 71, 31))
         font = QtGui.QFont()
@@ -62,6 +61,12 @@ class Ui_MainWindow(object):
         self.actionErrores.setObjectName("actionErrores")
         self.actionArbol_de_derivacion = QtWidgets.QAction(MainWindow)
         self.actionArbol_de_derivacion.setObjectName("actionArbol_de_derivacion")
+        self.actionCargar = QtWidgets.QAction(MainWindow)
+        self.actionCargar.setObjectName("actionCargar")
+        self.actionAnalizar = QtWidgets.QAction(MainWindow)
+        self.actionAnalizar.setObjectName("actionAnalizar")
+        self.menuCargar_Archivo.addAction(self.actionCargar)
+        self.menuAnalizar.addAction(self.actionAnalizar)
         self.menuReportes.addAction(self.actionTokens)
         self.menuReportes.addAction(self.actionErrores)
         self.menuReportes.addAction(self.actionArbol_de_derivacion)
@@ -83,6 +88,7 @@ class Ui_MainWindow(object):
         self.actionTokens.setText(_translate("MainWindow", "Tokens"))
         self.actionErrores.setText(_translate("MainWindow", "Errores"))
         self.actionArbol_de_derivacion.setText(_translate("MainWindow", "Arbol de derivacion"))
-
+        self.actionCargar.setText(_translate("MainWindow", "Cargar"))
+        self.actionAnalizar.setText(_translate("MainWindow", "Analizar"))
 
 

@@ -90,11 +90,13 @@
     <property name="title">
      <string>Cargar Archivo</string>
     </property>
+    <addaction name="actionCargar"/>
    </widget>
    <widget class="QMenu" name="menuAnalizar">
     <property name="title">
      <string>Analizar</string>
     </property>
+    <addaction name="actionAnalizar"/>
    </widget>
    <widget class="QMenu" name="menuReportes">
     <property name="title">
@@ -122,6 +124,16 @@
   <action name="actionArbol_de_derivacion">
    <property name="text">
     <string>Arbol de derivacion</string>
+   </property>
+  </action>
+  <action name="actionCargar">
+   <property name="text">
+    <string>Cargar</string>
+   </property>
+  </action>
+  <action name="actionAnalizar">
+   <property name="text">
+    <string>Analizar</string>
    </property>
   </action>
  </widget>
