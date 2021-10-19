@@ -24,6 +24,7 @@ class Ui_MainWindow(object):
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setGeometry(QtCore.QRect(590, 40, 711, 611))
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.plainTextEdit_2.setReadOnly(True)
         self.lblCodigo = QtWidgets.QLabel(self.centralwidget)
         self.lblCodigo.setGeometry(QtCore.QRect(260, 10, 71, 31))
         font = QtGui.QFont()
@@ -74,8 +75,8 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuCargar_Archivo.menuAction())
         self.menubar.addAction(self.menuAnalizar.menuAction())
         self.menubar.addAction(self.menuReportes.menuAction())
-        self.actionCargar.triggered.connect(gestor.CargarArchivo)
-
+        self.actionCargar.triggered.connect(self.addFile)
+        self.actionAnalizar.triggered.connect(self.Analizar)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -93,4 +94,10 @@ class Ui_MainWindow(object):
         self.actionCargar.setText(_translate("MainWindow", "Cargar"))
         self.actionAnalizar.setText(_translate("MainWindow", "Analizar"))
 
+    def addFile(self):
+        Text = gestor.CargarArchivo()
+        self.txtCodigo.insertPlainText(Text)
 
+    def Analizar(self):
+     #   gestor.Analysis(self.txtCodigo.toPlainText())
+        print(self.txtCodigo.toPlainText())
