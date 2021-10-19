@@ -9,8 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Gestor import *
 
-
+gestor = Gestor()
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -73,6 +74,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuCargar_Archivo.menuAction())
         self.menubar.addAction(self.menuAnalizar.menuAction())
         self.menubar.addAction(self.menuReportes.menuAction())
+        self.actionCargar.triggered.connect(gestor.CargarArchivo)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)

@@ -14,7 +14,6 @@ class Gestor:
         self.Errores=[]
 
     def CargarArchivo(self): ##Inicio del metodo
-        print("entro")
         #self.Tokens.clear()## al cargar un nuevo archivo se borran los tokens actuales
         #self.Errores.clear()## al cargar un nuevo archivo se borran los erroes actuales
          
