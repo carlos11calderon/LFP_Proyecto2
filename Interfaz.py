@@ -9,8 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from AutomataLexico import AutomataLexico
 from Gestor import *
-
+Auto = AutomataLexico()
 gestor = Gestor()
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -100,4 +101,12 @@ class Ui_MainWindow(object):
 
     def Analizar(self):
      #   gestor.Analysis(self.txtCodigo.toPlainText())
-        print(self.txtCodigo.toPlainText())
+        Text = self.txtCodigo.toPlainText()
+        Auto.analizar(Text)
+    
+        '''Text = self.txtCodigo.toPlainText()
+        gestor.Analysis(Text)
+        for x in gestor.ListClaves:
+            print(x)
+        for x in gestor.ListRegistros:
+            print(x)'''

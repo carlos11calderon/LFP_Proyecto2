@@ -5,7 +5,8 @@ from tkinter import *
 #import graphviz
 from graphviz import * 
 #imports clases
-import Errores, Token
+import Errores
+from Token import Token
 
 Text=''
 class Gestor:
@@ -36,11 +37,9 @@ class Gestor:
         else:
             ##abrimos el archivo y lo leemos
             Text = filee.read()
-            print(Text)
-            print('\n\n')
+            
             ##concatenamos el simbolo terminal
             Text+='%'
-            print(Text)
             filee.close()##Cerramos el archivo
             print("Lectura Exitosa")
             return Text 
@@ -60,7 +59,7 @@ class Gestor:
             return False
 
     def isCharacter(self, Character):
-        if ((ord(Character)>=32 and ord(Character)!=34 and ord(125) )):
+        if ((ord(Character)>=32 and ord(Character)!=34 and ord(Character)<=125 )):
             return True
         elif ord(Character)==34:
             return False
@@ -69,7 +68,7 @@ class Gestor:
         CuerpoClaves=[]
         CuerpoRegistros=[]
         estado = 0
-        lexema=0
+        lexema=""
         contadorColumna=0
         contadorFila=1
         for x in Text:
@@ -89,28 +88,25 @@ class Gestor:
                     estado = 24   
             elif (estado==1):
                 if self.isLetter(x)==True:
-                    lexema+=1
-                    estado=1
+                    lexema+=x
+                    
                 elif ord(x)==61: #if character is '='
                     if lexema=="Claves":
-                        self.Tokens.append(Token("Reservada",lexema,contadorFila,contadorColumna))
-                        lexema=""
-                        lexema+=x
-                        self.Tokens.append(Token("Reservada", lexema, contadorFila, contadorColumna))
-                        lexema=''
+                        self.Tokens.append(Token("Reservada", '=', contadorFila, contadorColumna))
                         estado = 2
-                    
+                    elif lexema=='Registros':
+                        self.Tokens.append(Token("Reservada", '=', contadorFila, contadorColumna))
+                        estado = 3
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
                     pass
             elif (estado==2):
                 if (ord(x)==91):
-                    lexema+=x
-                    self.Tokens.append(Token("Reservada", lexema, contadorFila, contadorColumna))
+                    self.Tokens.append(Token("Reservada", '[', contadorFila, contadorColumna))
                     estado=3
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
                     pass
             elif (estado==3):
-                lexema=''
+                
                 if(x=='"'):
                     if lexema=="Claves":
                         self.Tokens.append(Token("Reservada",lexema,contadorFila,contadorColumna))
@@ -138,11 +134,12 @@ class Gestor:
                         lexema+=x
                         estado=6
             elif (estado==5):
-                CuerpoRegistros.clear()
+                
                 if self.isNum(x)==True:
                     lexema+=x
                     estado=10
                 elif x == '"':
+                    self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
                     estado =11
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
                     pass    
@@ -153,7 +150,7 @@ class Gestor:
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
                     estado=7
                     self.Tokens.append(Token("Clave", lexema, contadorFila, contadorColumna))
-                    self.ListClaves.append(lexema)
+                    CuerpoClaves.append(lexema)
                     lexema=''
             elif(estado==7):
                 if x==",":
@@ -161,6 +158,7 @@ class Gestor:
                     estado = 8
                 elif x=="]":
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
+                    self.ListClaves.append(CuerpoClaves)
                     estado=9
             elif(estado==8):
                 if x=='"':
@@ -181,32 +179,64 @@ class Gestor:
                 elif x==',':
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
                     self.Tokens.append(Token("Registro", lexema, contadorFila, contadorColumna))
+                    
                     CuerpoRegistros.append(lexema)
+                    lexema=''
                     estado=5
                 elif x=='}':
+                    CuerpoRegistros.append(lexema)
+                    self.ListRegistros.append(CuerpoRegistros)
+                    CuerpoRegistros=[]
+                    lexema=''
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
                     estado=12
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
                     pass
             elif(estado==11):
                 if self.isCharacter(x)==True:
-                    estado =29
+                    lexema+=x
+                    estado=29
                 elif x==",":
                     CuerpoRegistros.append(lexema)
+
                     lexema=''
                     estado=5
             elif(estado==12):
                 if x == ']':
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
                     estado = 13
+                    lexema=''
                 elif x =='{':
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
                     estado = 5
-                    
+            elif (estado==13):
+                if self.isLetter(x)==True:
+                    lexema+=x
+                    estado=14
+                elif x=="'":
+                    estado=24
+                elif x=="#":
+                    estado=23
+                
+            elif estado==23:
+                if x !='\n':
+                    pass
+                else:
+                    estado=13
+            elif estado==24:
+                if lexema != "'''":
+                    if x=="'":
+                        lexema+=x
+                    else:
+                        lexema=''
+                        pass
+                else:
+                    lexema=''
+
             elif estado==29:
                 if self.isCharacter(x)==True:
                     lexema+=x
-                else:
+                elif x=='"':
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
                     self.Tokens.append(Token("Registro", lexema, contadorFila, contadorColumna))
                     CuerpoRegistros.append(lexema)
@@ -219,12 +249,10 @@ class Gestor:
                 elif x == '}':
                     
                     self.Tokens.append(Token("Simbolo", x, contadorFila, contadorColumna))
-                    self.ListRegistros.append(CuerpoRegistros)
-                    CuerpoRegistros.clear()
+                    
                     estado = 12
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
                     pass
             
 
-        for y in self.ListClaves:
-            print(y)
+        
