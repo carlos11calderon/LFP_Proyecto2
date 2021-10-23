@@ -11,6 +11,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from AutomataLexico import AutomataLexico
 from Gestor import *
+from GestorSintactico import *
+
+sis = GestorSintactico()
 Auto = AutomataLexico()
 gestor = Gestor()
 class Ui_MainWindow(object):
@@ -102,8 +105,8 @@ class Ui_MainWindow(object):
     def Analizar(self):
      #   gestor.Analysis(self.txtCodigo.toPlainText())
         Text = self.txtCodigo.toPlainText()
-        Auto.analizar(Text)
-    
+        listaTokens = Auto.analizar(Text)
+        sis.analizar(listaTokens)
         '''Text = self.txtCodigo.toPlainText()
         gestor.Analysis(Text)
         for x in gestor.ListClaves:

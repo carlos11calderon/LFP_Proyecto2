@@ -1,4 +1,5 @@
 from tkinter.constants import E
+import token
 from Token import Token
 class AutomataLexico:
     
@@ -31,13 +32,12 @@ class AutomataLexico:
         self.listaTokens = []
         self.listaErrores = []
 
-
-        texto
         estado = 0
         fila =1
         columna=1
         lexema = ''    
-        for i in range(0,len(texto)):
+        i = 0
+        while i <len(texto):
             x=texto[i]
             if estado==0:
                 if x == '=':
@@ -146,7 +146,8 @@ class AutomataLexico:
                     lexema+=x
                     columna+=1
                 if x=='"':
-                    self.listaTokens.append(Token('Clave',lexema,fila,columna))
+                    self.listaTokens.append(Token('cadena',lexema,fila,columna))
+                    lexema=''
                     self.listaTokens.append(Token('"', 'ComillaDoble',fila,columna))
                     columna+=1
                     estado=0
@@ -154,16 +155,22 @@ class AutomataLexico:
                 if self.isNum(x)==True:
                     lexema+=x
                     columna+=1
-                    estado=0
                 elif x == '.':
                     lexema+=x
                     estado=10
                     columna+=1
+                else: 
+                    self.listaTokens.append(Token('entero',lexema ,fila,columna))
+                    lexema=''
+                    i-=1
+                    estado=0
             elif estado==10:
                 if self.isNum(x)==True:
                     lexema+=x
                     columna+=1
                 else:
+                    self.listaTokens.append(Token('real',lexema,fila, columna))
+                    lexema=''
                     estado=0
                     i-=1
                 
@@ -198,4 +205,5 @@ class AutomataLexico:
                     lexema=''
                     i-=1
                     estado=0
-                    
+            i+=1
+        return self.listaTokens            
