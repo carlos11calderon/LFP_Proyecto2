@@ -206,4 +206,5 @@ class AutomataLexico:
                     i-=1
                     estado=0
             i+=1
+        ##print('ultimo token--->'+self.listaTokens[473].lexema)
         return self.listaTokens            
