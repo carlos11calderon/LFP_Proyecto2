@@ -1,11 +1,12 @@
 from Token import Token
 from Errores import Errores
 from prettytable import *
-
+from graphviz import *
 i=0
 register=[]
 ReturnText = ''
 contadorImprimir =1
+NodeData=''
 class GestorSintactico: 
     
     def __init__(self):
@@ -24,16 +25,26 @@ class GestorSintactico:
         return ReturnText
 
     def iniciar(self):
+        global NodeData
+        NodeData+='inicio->'
+        NodeData+='Instrucciones\n'
         self.lista_Instrucciones()
+        
         
 
     def lista_Instrucciones(self):
-        global i
+        global i, NodeData
+
+        NodeData+='Instrucciones-> Instruccion\n'
+        
         if self.listaTokens[i].lexema == 'registros':
+            NodeData+='Instruccion-> Registros\n'
             self.instruccion_Registros()
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema == 'claves':
+            NodeData+='Instruccion-> Claves\n'
             self.instruccion_Claves()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema == 'CommentSimple':
             i+=1
@@ -42,66 +53,104 @@ class GestorSintactico:
             i+=1
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='imprimir':
+            NodeData+='Instruccion-> imprimir\n'
             self.instruccion_Imprimir()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='imprimirln':
+            NodeData+='Instruccion-> imprimirln\n'
             self.instruccion_Imprimirln()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='conteo':
+            NodeData+='Instruccion-> conteo\n'
             self.instruccion_Conteo()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='promedio':
+            NodeData+='Instruccion-> promedio\n'
             self.instruccion_Promedio()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='contarsi':
+            NodeData+='Instruccion-> contarSi\n'
             self.instruccion_Contarsi()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='datos':
+            NodeData+='Instruccion-> datos\n'
             self.instruccion_Datos()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='sumar':
+            NodeData+='Instruccion-> Sumar\n'
             self.instruccion_Sumar()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='max':
+            NodeData+='Instruccion-> Max\n'
             self.instruccion_max()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='min':
+            NodeData+='Instruccion-> Min\n'
             self.instruccion_min()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='exportar':
+            NodeData+='Instruccion-> ExportarReporte\n'
             self.instruccion_Exportar()
+            NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='fin':
+            NodeData+='Instruccion-> Fin\n'
             print('fin analisis sintactico')
         else:
             pass
 
     ##EMPIEZA LAS FUNCIONES PARA LA INSTRUCCION DE CLAVES
     def instruccion_Claves(self):
-        global i
+        global i, NodeData
         if self.listaTokens[i].lexema == 'claves':
+            NodeData+='Claves-> TokenClaves\n'
+            NodeData+='TokenClaves-> Claves'
             i+=1
+
             if self.listaTokens[i].lexema == 'igual':
+                NodeData+='Claves-> Token_igual\n'
+                NodeData+='Token_igual-> ='
                 i+=1
                 if self.listaTokens[i].lexema == 'corchete1':
+                    NodeData+='Claves-> Token_CorcheteAbre\n'
+                    NodeData+='Token_CorcheteAbre-> ['
                     i+=1
+                    NodeData+='Claves-> ListClaves\n'
+                    
                     self.lista_Claves()
                     if self.listaTokens[i].lexema== 'corchete2':
+                        NodeData+='Claves-> Token_CorcheteCierra\n'
+                        NodeData+='Token_CorcheteCierra-> ]\n'
                         i+=1
                         print('finalizaron claves')
 
     def lista_Claves(self):
+        global NodeData
+        NodeData+='ListClaves->Clave\n'
         self.clave()
 
     def clave(self):
-        global i
+        global i, NodeData
         if self.listaTokens[i].lexema == 'ComillaDoble':
             i+=1
             self.SeparadorClaves() 
         elif self.listaTokens[i].token == 'cadena':
             cadena = self.listaTokens[i].lexema
             self.listClaves.append(cadena)
+            
             print(cadena)
+            
+            NodeData+='Clave->cadena\n'
+            NodeData+='cadena->'+str(cadena)+'\n'
             i+=1
             self.SeparadorClaves()
         else: 
@@ -109,8 +158,10 @@ class GestorSintactico:
             pass
 
     def SeparadorClaves(self):
-        global i
+        global i, NodeData
         if self.listaTokens[i].lexema == 'coma':
+            NodeData+='Clave-> Coma-> ,\n'
+            NodeData+='Clave->Clave\n'
             i+=1
             self.clave()
         else:
@@ -119,35 +170,45 @@ class GestorSintactico:
     
     ##EMPIEZA LAS FUNCIONES PARA LA INSTRUCCION DE REGISTROS
     def instruccion_Registros(self):
-        global i
+        global i, NodeData
+        NodeData+='Registros->Proceso'
         if self.listaTokens[i].lexema == 'registros':
+            NodeData+='Proceso->TokenRegistros->Registros'
             i+=1
             if self.listaTokens[i].lexema == 'igual':
+                NodeData+='Proceso->igual->=;'
                 i+=1
                 if self.listaTokens[i].lexema == 'corchete1':
+                    NodeData+='Proceso->CorcheteAbre->['
                     i+=1
+                    NodeData+='Proceso->listRegistros'
                     self.lista_Registros()
                     if self.listaTokens[i].lexema== 'corchete2':
+                        NodeData+='Proceso->CorcheteCierra'
                         i+=1
                         print('finalizaron registros')
     
     def lista_Registros(self):
+        global NodeData
+        NodeData+='listRegistros->registro'
         self.registro()
 
     def registro(self):
-        global i
+        global i, NodeData
         global register
         if self.listaTokens[i].lexema == 'ComillaDoble':
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].token == 'cadena':
             cadena = self.listaTokens[i].lexema
+            NodeData+='registro->cadena->'+cadena
             register.append(cadena)
             print(cadena)
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].token == 'entero':
             numeroEntero = self.listaTokens[i].lexema
+            NodeData+='registro->entero->'+numeroEntero
             register.append(numeroEntero)
             print(numeroEntero)
             i+=1
@@ -155,15 +216,18 @@ class GestorSintactico:
             self.registro()
         elif self.listaTokens[i].token == 'real':
             numeroEntero = self.listaTokens[i].lexema
+            NodeData+='registro->Real->'+numeroEntero
             register.append(numeroEntero)
             print(numeroEntero)
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].lexema == 'llave1':
             i+=1
+            NodeData+='registro->llaveAbre->{'
             self.registro()
         elif self.listaTokens[i].lexema == 'llave2':
             i+=1
+            NodeData+='registro->llaveCierra->}'
             self.listRegisters.append(register)
             register=[]
             self.registro()
@@ -172,11 +236,12 @@ class GestorSintactico:
             pass
     
     def SeparadorRegistros(self):
-        global i
+        global i, NodeData
         if self.listaTokens[i].lexema =='llave2':
             pass
         elif self.listaTokens[i].lexema == 'coma':
             i+=1
+            NodeData+='registro->coma->,'
             self.registro()
         else:
             self.registro()
@@ -501,3 +566,18 @@ class GestorSintactico:
         Filee.close()
         print('reporte Exportado')
 
+    def ArbolDeDerivacion(self):
+        global NodeData
+        f = open('ArchivosDots/archivoArbolDerivacion.dot', 'w', encoding='utf-8')
+        edgeData=''
+        graph=''
+
+        contenidoDot=(
+            'digraph Arbol={'
+            '{'
+            'node [margin=0 fontcolor=blue fontsize=26 width 0.5 shape=circle style=filleed]'
+
+        )
+
+
+        f.write('')
