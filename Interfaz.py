@@ -13,9 +13,10 @@ from AutomataLexico import AutomataLexico
 from Gestor import *
 from GestorSintactico import *
 
-sis = GestorSintactico()
+gestorSintactico = GestorSintactico()
 Auto = AutomataLexico()
 gestor = Gestor()
+listaTokens=[]
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -27,6 +28,10 @@ class Ui_MainWindow(object):
         self.txtCodigo.setObjectName("txtCodigo")
         self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit_2.setGeometry(QtCore.QRect(590, 40, 711, 611))
+        font = QtGui.QFont()
+        font.setFamily('MingLiU-ExtB')
+        font.setPointSize(11)
+        self.plainTextEdit_2.setFont(font)
         self.plainTextEdit_2.setObjectName("plainTextEdit_2")
         self.plainTextEdit_2.setReadOnly(True)
         self.lblCodigo = QtWidgets.QLabel(self.centralwidget)
@@ -81,6 +86,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuReportes.menuAction())
         self.actionCargar.triggered.connect(self.addFile)
         self.actionAnalizar.triggered.connect(self.Analizar)
+        self.actionTokens.triggered.connect(self.ReporteTokens)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -99,17 +105,63 @@ class Ui_MainWindow(object):
         self.actionAnalizar.setText(_translate("MainWindow", "Analizar"))
 
     def addFile(self):
+        self.plainTextEdit_2.clear()
+        self.txtCodigo.clear()
         Text = gestor.CargarArchivo()
         self.txtCodigo.insertPlainText(Text)
 
     def Analizar(self):
      #   gestor.Analysis(self.txtCodigo.toPlainText())
+        global listaTokens
         Text = self.txtCodigo.toPlainText()
         listaTokens = Auto.analizar(Text)
-        sis.analizar(listaTokens)
-        '''Text = self.txtCodigo.toPlainText()
-        gestor.Analysis(Text)
-        for x in gestor.ListClaves:
-            print(x)
-        for x in gestor.ListRegistros:
-            print(x)'''
+        textoSalida=gestorSintactico.analizar(listaTokens)
+        self.plainTextEdit_2.insertPlainText(textoSalida)
+    
+    def ReporteTokens(self):
+        global listaTokens
+        Archivo = open("./Reportes/Tokens.html",'w')
+        contenidoTabla = ''
+        for i in range(len(listaTokens)):
+            contenidoTabla+='<tr><th scope="row">'+str(i+1)+'</th>\n'
+            contenidoTabla+='<td>'+listaTokens[i].token+'</td>\n'
+            contenidoTabla+='<td>'+listaTokens[i].lexema+'</td>\n'
+            contenidoTabla+='<td>'+str(listaTokens[i].Fila)+'</td>\n'
+            contenidoTabla+='<td>'+str(listaTokens[i].Columna)+'</td>\n</tr>'
+        contenidoHTML=(
+              '<!DOCTYPE html>\n'
+                ' <html>\n' 
+                '<head> \n'
+                '<meta charset="utf-8"> \n'
+                '<link href="assets/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">\n'
+                '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet">\n'
+                '<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">\n'
+                '<link rel="stylesheet" type="text/css"  href="css/Style.css">'
+                '<title>Reporte de Tokens' '</title>\n'
+                '</head>\n' 
+                '<body>\n'
+                '<div class="container-fluid welcome-page" id="home">\n'
+                '   <div class="jumbotron">\n'
+                '       <h1>\n <span>\nTokens\n</span>\n </h1>\n<p>Reporte con todos los tokens, lexemas, sus fila y sus columna</p>\n'
+                '</div>'
+                '</div>'
+                '<div class="container-fluid " ><div class="jumbotron">'
+                '<table class="table table-responsive">\n'
+                '   <thead>\n'
+                        '<tr>\n'
+                            '<th scope="col">#</th>\n'
+                            '<th scope="col">Token</th>\n'
+                            '<th scope="col">Lexema</th>\n'
+                            '<th scope="col">Fila</th>\n'
+                            '<th scope="col">Columna</th>\n'
+                        '</tr>\n'
+                    '</thead>\n'
+                    '<tbody>\n'
+                    +contenidoTabla+
+                    '</tbody>\n'
+                    '</table>'   
+                    '</div>'
+                '</div>\n''</body>\n''</html>\n'
+            )
+        Archivo.write(contenidoHTML)
+        Archivo.close()
