@@ -29,6 +29,220 @@ Clave4[label="Clave"]
 Cadena4[label="Cadena"]
 SimboloCorchete1[label="SimboloCorchete"]
 CorcheteC1[label="]"]
+Instrucciones2[label="Instrucciones"]
+Instruccion2[label="Instruccion"]
+Simboloigual1[label="SimboloIgual"]
+igual1[label="="]
+SimboloCorchete2[label="SimboloCorchete"]
+CorcheteA2[label="["]
+ListRegistros0[label="ListRegistros"]
+Registro0[label="Registro"]
+SimbolollaveA0[label="SimboloLlave_A"]
+llaveA0[label="{"]
+Registro1[label="Registro"]
+listValues0[label="ListaValues"]
+Value0[label="Value"]
+Entero0[label="Entero"]
+NumE0[label="1"]Value1[label="Value"]
+Cadena5[label="Cadena"]
+CadenaTexto5[label="Barbacoa"]
+Value2[label="Value"]
+Real0[label="Real"]
+NumR0[label="10.50"]Value3[label="Value"]
+Real1[label="Real"]
+NumR1[label="20.00"]Value4[label="Value"]
+Entero1[label="Entero"]
+NumE1[label="6"]SimbolollaveC1[label="SimboloLlave_C"]
+llaveC1[label="}"]
+SimbolollaveA2[label="SimboloLlave_A"]
+llaveA2[label="{"]
+Registro2[label="Registro"]
+listValues1[label="ListaValues"]
+Value5[label="Value"]
+Entero2[label="Entero"]
+NumE2[label="2"]Value6[label="Value"]
+Cadena6[label="Cadena"]
+CadenaTexto6[label="Salsa"]
+Value7[label="Value"]
+Real2[label="Real"]
+NumR2[label="13.00"]Value8[label="Value"]
+Real3[label="Real"]
+NumR3[label="16.00"]Value9[label="Value"]
+Entero3[label="Entero"]
+NumE3[label="7"]SimbolollaveC3[label="SimboloLlave_C"]
+llaveC3[label="}"]
+SimbolollaveA4[label="SimboloLlave_A"]
+llaveA4[label="{"]
+Registro3[label="Registro"]
+listValues2[label="ListaValues"]
+Value10[label="Value"]
+Entero4[label="Entero"]
+NumE4[label="3"]Value11[label="Value"]
+Cadena7[label="Cadena"]
+CadenaTexto7[label="Mayonesa"]
+Value12[label="Value"]
+Real4[label="Real"]
+NumR4[label="15.00"]Value13[label="Value"]
+Real5[label="Real"]
+NumR5[label="18.00"]Value14[label="Value"]
+Entero5[label="Entero"]
+NumE5[label="8"]SimbolollaveC5[label="SimboloLlave_C"]
+llaveC5[label="}"]
+SimbolollaveA6[label="SimboloLlave_A"]
+llaveA6[label="{"]
+Registro4[label="Registro"]
+listValues3[label="ListaValues"]
+Value15[label="Value"]
+Entero6[label="Entero"]
+NumE6[label="4"]Value16[label="Value"]
+Cadena8[label="Cadena"]
+CadenaTexto8[label="Mostaza"]
+Value17[label="Value"]
+Real6[label="Real"]
+NumR6[label="14.00"]Value18[label="Value"]
+Real7[label="Real"]
+NumR7[label="16.00"]Value19[label="Value"]
+Entero7[label="Entero"]
+NumE7[label="4"]SimbolollaveC7[label="SimboloLlave_C"]
+llaveC7[label="}"]
+SimbolollaveA8[label="SimboloLlave_A"]
+llaveA8[label="{"]
+Registro5[label="Registro"]
+listValues4[label="ListaValues"]
+Value20[label="Value"]
+Entero8[label="Entero"]
+NumE8[label="5"]Value21[label="Value"]
+Cadena9[label="Cadena"]
+CadenaTexto9[label="Frijol"]
+Value22[label="Value"]
+Real8[label="Real"]
+NumR8[label="10.50"]Value23[label="Value"]
+Real9[label="Real"]
+NumR9[label="20.00"]Value24[label="Value"]
+Entero9[label="Entero"]
+NumE9[label="1"]SimbolollaveC9[label="SimboloLlave_C"]
+llaveC9[label="}"]
+SimbolollaveA10[label="SimboloLlave_A"]
+llaveA10[label="{"]
+Registro6[label="Registro"]
+listValues5[label="ListaValues"]
+Value25[label="Value"]
+Entero10[label="Entero"]
+NumE10[label="6"]Value26[label="Value"]
+Cadena10[label="Cadena"]
+CadenaTexto10[label="Azucar"]
+Value27[label="Value"]
+Real10[label="Real"]
+NumR10[label="13.00"]Value28[label="Value"]
+Real11[label="Real"]
+NumR11[label="16.00"]Value29[label="Value"]
+Entero11[label="Entero"]
+NumE11[label="3"]SimbolollaveC11[label="SimboloLlave_C"]
+llaveC11[label="}"]
+SimbolollaveA12[label="SimboloLlave_A"]
+llaveA12[label="{"]
+Registro7[label="Registro"]
+listValues6[label="ListaValues"]
+Value30[label="Value"]
+Entero12[label="Entero"]
+NumE12[label="7"]Value31[label="Value"]
+Cadena11[label="Cadena"]
+CadenaTexto11[label="Carton de Huevos"]
+Value32[label="Value"]
+Real12[label="Real"]
+NumR12[label="15.00"]Value33[label="Value"]
+Real13[label="Real"]
+NumR13[label="18.00"]Value34[label="Value"]
+Entero13[label="Entero"]
+NumE13[label="2"]SimbolollaveC13[label="SimboloLlave_C"]
+llaveC13[label="}"]
+SimbolollaveA14[label="SimboloLlave_A"]
+llaveA14[label="{"]
+Registro8[label="Registro"]
+listValues7[label="ListaValues"]
+Value35[label="Value"]
+Entero14[label="Entero"]
+NumE14[label="8"]Value36[label="Value"]
+Cadena12[label="Cadena"]
+CadenaTexto12[label="Sal en libra"]
+Value37[label="Value"]
+Real14[label="Real"]
+NumR14[label="14.00"]Value38[label="Value"]
+Real15[label="Real"]
+NumR15[label="16.00"]Value39[label="Value"]
+Entero15[label="Entero"]
+NumE15[label="4"]SimbolollaveC15[label="SimboloLlave_C"]
+llaveC15[label="}"]
+SimbolollaveA16[label="SimboloLlave_A"]
+llaveA16[label="{"]
+Registro9[label="Registro"]
+listValues8[label="ListaValues"]
+Value40[label="Value"]
+Entero16[label="Entero"]
+NumE16[label="9"]Value41[label="Value"]
+Cadena13[label="Cadena"]
+CadenaTexto13[label="Consome"]
+Value42[label="Value"]
+Real16[label="Real"]
+NumR16[label="10.50"]Value43[label="Value"]
+Real17[label="Real"]
+NumR17[label="20.00"]Value44[label="Value"]
+Entero17[label="Entero"]
+NumE17[label="6"]SimbolollaveC17[label="SimboloLlave_C"]
+llaveC17[label="}"]
+SimbolollaveA18[label="SimboloLlave_A"]
+llaveA18[label="{"]
+Registro10[label="Registro"]
+listValues9[label="ListaValues"]
+Value45[label="Value"]
+Entero18[label="Entero"]
+NumE18[label="10"]Value46[label="Value"]
+Cadena14[label="Cadena"]
+CadenaTexto14[label="Arroz"]
+Value47[label="Value"]
+Real18[label="Real"]
+NumR18[label="13.00"]Value48[label="Value"]
+Real19[label="Real"]
+NumR19[label="16.00"]Value49[label="Value"]
+Entero19[label="Entero"]
+NumE19[label="0"]SimbolollaveC19[label="SimboloLlave_C"]
+llaveC19[label="}"]
+SimbolollaveA20[label="SimboloLlave_A"]
+llaveA20[label="{"]
+Registro11[label="Registro"]
+listValues10[label="ListaValues"]
+Value50[label="Value"]
+Entero20[label="Entero"]
+NumE20[label="11"]Value51[label="Value"]
+Cadena15[label="Cadena"]
+CadenaTexto15[label="Cafe en sobre"]
+Value52[label="Value"]
+Real20[label="Real"]
+NumR20[label="15.00"]Value53[label="Value"]
+Real21[label="Real"]
+NumR21[label="18.00"]Value54[label="Value"]
+Entero21[label="Entero"]
+NumE21[label="0"]SimbolollaveC21[label="SimboloLlave_C"]
+llaveC21[label="}"]
+SimbolollaveA22[label="SimboloLlave_A"]
+llaveA22[label="{"]
+Registro12[label="Registro"]
+listValues11[label="ListaValues"]
+Value55[label="Value"]
+Entero22[label="Entero"]
+NumE22[label="12"]Value56[label="Value"]
+Cadena16[label="Cadena"]
+CadenaTexto16[label="1/2 litro de agua pura"]
+Value57[label="Value"]
+Real22[label="Real"]
+NumR22[label="14.00"]Value58[label="Value"]
+Real23[label="Real"]
+NumR23[label="16.00"]Value59[label="Value"]
+Entero23[label="Entero"]
+NumE23[label="4"]SimbolollaveC23[label="SimboloLlave_C"]
+llaveC23[label="}"]
+SimboloCorchete3[label="SimboloCorchete"]
+CorcheteC2[label="]"]
 }inicio->Instrucciones0
 Instrucciones0-> Instruccion1
 Instruccion1->Proceso_Claves
@@ -54,4 +268,171 @@ Clave3->Clave4
 Clave4->Cadena4->stock
 Proceso_Claves-> SimboloCorchete1->CorcheteC1
 Instrucciones0-> Instrucciones1
+Instrucciones1-> Instruccion2
+Instruccion2->Proceso_Registros
+Proceso_Registros-> TokenRegistros
+TokenRegistros-> Registros
+Proceso_Registros-> Simboloigual1
+Simboloigual1->igual1
+Proceso_Registros-> SimboloCorchete2->CorcheteA2
+Proceso_Registros-> ListRegistros0
+ListRegistros0->Registro0
+Registro0->SimbolollaveA0->llaveA0
+Registro0->listValues0->Value0
+Value0->Entero0->NumE0
+Value0-> Value1
+Value1->Cadena5->CadenaTexto5
+Value1-> Value2
+Value2->Real0->NumR0
+Value2-> Value3
+Value3->Real1->NumR1
+Value3-> Value4
+Value4->Entero1->NumE1
+Registro0->SimbolollaveC1->llaveC1
+Registro0-> Registro1
+Registro1->SimbolollaveA2->llaveA2
+Registro1->listValues1->Value5
+Value5->Entero2->NumE2
+Value5-> Value6
+Value6->Cadena6->CadenaTexto6
+Value6-> Value7
+Value7->Real2->NumR2
+Value7-> Value8
+Value8->Real3->NumR3
+Value8-> Value9
+Value9->Entero3->NumE3
+Registro1->SimbolollaveC3->llaveC3
+Registro1-> Registro2
+Registro2->SimbolollaveA4->llaveA4
+Registro2->listValues2->Value10
+Value10->Entero4->NumE4
+Value10-> Value11
+Value11->Cadena7->CadenaTexto7
+Value11-> Value12
+Value12->Real4->NumR4
+Value12-> Value13
+Value13->Real5->NumR5
+Value13-> Value14
+Value14->Entero5->NumE5
+Registro2->SimbolollaveC5->llaveC5
+Registro2-> Registro3
+Registro3->SimbolollaveA6->llaveA6
+Registro3->listValues3->Value15
+Value15->Entero6->NumE6
+Value15-> Value16
+Value16->Cadena8->CadenaTexto8
+Value16-> Value17
+Value17->Real6->NumR6
+Value17-> Value18
+Value18->Real7->NumR7
+Value18-> Value19
+Value19->Entero7->NumE7
+Registro3->SimbolollaveC7->llaveC7
+Registro3-> Registro4
+Registro4->SimbolollaveA8->llaveA8
+Registro4->listValues4->Value20
+Value20->Entero8->NumE8
+Value20-> Value21
+Value21->Cadena9->CadenaTexto9
+Value21-> Value22
+Value22->Real8->NumR8
+Value22-> Value23
+Value23->Real9->NumR9
+Value23-> Value24
+Value24->Entero9->NumE9
+Registro4->SimbolollaveC9->llaveC9
+Registro4-> Registro5
+Registro5->SimbolollaveA10->llaveA10
+Registro5->listValues5->Value25
+Value25->Entero10->NumE10
+Value25-> Value26
+Value26->Cadena10->CadenaTexto10
+Value26-> Value27
+Value27->Real10->NumR10
+Value27-> Value28
+Value28->Real11->NumR11
+Value28-> Value29
+Value29->Entero11->NumE11
+Registro5->SimbolollaveC11->llaveC11
+Registro5-> Registro6
+Registro6->SimbolollaveA12->llaveA12
+Registro6->listValues6->Value30
+Value30->Entero12->NumE12
+Value30-> Value31
+Value31->Cadena11->CadenaTexto11
+Value31-> Value32
+Value32->Real12->NumR12
+Value32-> Value33
+Value33->Real13->NumR13
+Value33-> Value34
+Value34->Entero13->NumE13
+Registro6->SimbolollaveC13->llaveC13
+Registro6-> Registro7
+Registro7->SimbolollaveA14->llaveA14
+Registro7->listValues7->Value35
+Value35->Entero14->NumE14
+Value35-> Value36
+Value36->Cadena12->CadenaTexto12
+Value36-> Value37
+Value37->Real14->NumR14
+Value37-> Value38
+Value38->Real15->NumR15
+Value38-> Value39
+Value39->Entero15->NumE15
+Registro7->SimbolollaveC15->llaveC15
+Registro7-> Registro8
+Registro8->SimbolollaveA16->llaveA16
+Registro8->listValues8->Value40
+Value40->Entero16->NumE16
+Value40-> Value41
+Value41->Cadena13->CadenaTexto13
+Value41-> Value42
+Value42->Real16->NumR16
+Value42-> Value43
+Value43->Real17->NumR17
+Value43-> Value44
+Value44->Entero17->NumE17
+Registro8->SimbolollaveC17->llaveC17
+Registro8-> Registro9
+Registro9->SimbolollaveA18->llaveA18
+Registro9->listValues9->Value45
+Value45->Entero18->NumE18
+Value45-> Value46
+Value46->Cadena14->CadenaTexto14
+Value46-> Value47
+Value47->Real18->NumR18
+Value47-> Value48
+Value48->Real19->NumR19
+Value48-> Value49
+Value49->Entero19->NumE19
+Registro9->SimbolollaveC19->llaveC19
+Registro9-> Registro10
+Registro10->SimbolollaveA20->llaveA20
+Registro10->listValues10->Value50
+Value50->Entero20->NumE20
+Value50-> Value51
+Value51->Cadena15->CadenaTexto15
+Value51-> Value52
+Value52->Real20->NumR20
+Value52-> Value53
+Value53->Real21->NumR21
+Value53-> Value54
+Value54->Entero21->NumE21
+Registro10->SimbolollaveC21->llaveC21
+Registro10-> Registro11
+Registro11->SimbolollaveA22->llaveA22
+Registro11->listValues11->Value55
+Value55->Entero22->NumE22
+Value55-> Value56
+Value56->Cadena16->CadenaTexto16
+Value56-> Value57
+Value57->Real22->NumR22
+Value57-> Value58
+Value58->Real23->NumR23
+Value58-> Value59
+Value59->Entero23->NumE23
+Registro11->SimbolollaveC23->llaveC23
+Registro11-> Registro12
+Proceso_Registros-> SimboloCorchete3->CorcheteC3
+Instrucciones1-> Instrucciones2
 }

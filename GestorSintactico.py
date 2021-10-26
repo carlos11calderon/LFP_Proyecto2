@@ -16,10 +16,15 @@ CountClave=0
 CountSimboloIgual=0
 CountSimboloCorchete=0
 CountListClaves=0
-CountListRegistro+0
+CountListRegistro=0
 CountCadena=0
 CountComa=0
 CountRegistro=0
+CountReal=0
+CountLlave=0
+CountValue=0
+CountEntero=0
+CountProceso=0
 class GestorSintactico: 
     
     def __init__(self):
@@ -46,7 +51,7 @@ class GestorSintactico:
         
 
     def lista_Instrucciones(self):
-        global i, NodeData, CountInstrucciones, NodosCrear, CountInstruccion, CountRegistro
+        global i, NodeData, CountInstrucciones, NodosCrear, CountInstruccion, CountRegistro,CountListRegistro
         CountInstrucciones+=1
         CountInstruccion+=1
         
@@ -228,34 +233,46 @@ class GestorSintactico:
                     NodeData+='Proceso_Registros-> SimboloCorchete'+str(CountSimboloCorchete)+'->CorcheteA'+str(CountSimboloCorchete)+'\n'
                     CountSimboloCorchete+=1
                     i+=1
-                    NodeData+='Proceso->listRegistros'
+                    NodosCrear+='ListRegistros'+str(CountListRegistro)+'[label="ListRegistros"]\n'
+                    NodeData+='Proceso_Registros-> ListRegistros'+str(CountListRegistro)+'\n'
                     self.lista_Registros()
                     if self.listaTokens[i].lexema== 'corchete2':
-                        NodeData+='Proceso->CorcheteCierra'
+                        NodosCrear+='SimboloCorchete'+str(CountSimboloCorchete)+'[label="SimboloCorchete"]\n'
+                        NodosCrear+='CorcheteC'+str(CountSimboloCorchete)+'[label="]"]\n'
+                        NodeData+='Proceso_Registros-> SimboloCorchete'+str(CountSimboloCorchete)+'->CorcheteC'+str(CountSimboloCorchete)+'\n'
                         i+=1
+                        CountSimboloCorchete+=1
                         print('finalizaron registros')
     
     def lista_Registros(self):
-        global NodeData
-        NodeData+='listRegistros->registro'
+        global NodeData, CountListRegistro, CountRegistro, NodosCrear,CountValue
+        NodosCrear+='Registro'+str(CountRegistro)+'[label="Registro"]\n'
+        NodeData+='ListRegistros'+str(CountListRegistro)+'->Registro'+str(CountRegistro)+'\n'
+        CountListRegistro+=1
         self.registro()
 
     def registro(self):
-        global i, NodeData
+        global i, NodeData, CountClave, NodosCrear, CountCadena, CountEntero, CountReal, CountLlave, CountRegistro, CountValue
         global register
         if self.listaTokens[i].lexema == 'ComillaDoble':
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].token == 'cadena':
             cadena = self.listaTokens[i].lexema
-            NodeData+='registro->cadena->'+cadena+'\n'
+            NodosCrear+='Cadena'+str(CountCadena)+'[label="Cadena"]\n'
+            NodosCrear+='CadenaTexto'+str(CountCadena)+'[label="'+cadena+'"]\n'
+            NodeData+='Value'+str(CountValue-1)+'->Cadena'+str(CountCadena)+'->CadenaTexto'+str(CountCadena)+'\n'
+            CountCadena+=1
             register.append(cadena)
             print(cadena)
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].token == 'entero':
             numeroEntero = self.listaTokens[i].lexema
-            NodeData+='registro->entero->'+numeroEntero+'\n'
+            NodosCrear+='Entero'+str(CountEntero)+'[label="Entero"]\n'
+            NodosCrear+='NumE'+str(CountEntero)+'[label="'+numeroEntero+'"]'
+            NodeData+='Value'+str(CountValue-1)+'->Entero'+str(CountEntero)+'->NumE'+str(CountEntero)+'\n'
+            CountEntero+=1
             register.append(numeroEntero)
             print(numeroEntero)
             i+=1
@@ -263,18 +280,34 @@ class GestorSintactico:
             self.registro()
         elif self.listaTokens[i].token == 'real':
             numeroEntero = self.listaTokens[i].lexema
-            NodeData+='registro->Real->'+numeroEntero+'\n'
+            NodosCrear+='Real'+str(CountReal)+'[label="Real"]\n'
+            NodosCrear+='NumR'+str(CountReal)+'[label="'+numeroEntero+'"]'
+            NodeData+='Value'+str(CountValue-1)+'->Real'+str(CountReal)+'->NumR'+str(CountReal)+'\n'
+            CountReal+=1
             register.append(numeroEntero)
             print(numeroEntero)
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].lexema == 'llave1':
             i+=1
-            NodeData+='registro->llaveAbre->{\n'
+            CountRegistro+=1
+            NodosCrear+='SimbolollaveA'+str(CountLlave)+'[label="SimboloLlave_A"]\n'
+            NodosCrear+='llaveA'+str(CountLlave)+'[label="{"]\n'
+            NodosCrear+='Registro'+str(CountRegistro)+'[label="Registro"]\n'
+            NodosCrear+='listValues'+str(CountRegistro-1)+'[label="ListaValues"]\n'
+            NodosCrear+='Value'+str(CountValue)+'[label="Value"]\n'
+            NodeData+='Registro'+str(CountRegistro-1)+'->SimbolollaveA'+str(CountLlave)+'->llaveA'+str(CountLlave)+'\n'
+            NodeData+='Registro'+str(CountRegistro-1)+'->listValues'+str(CountRegistro-1)+'->Value'+str(CountValue)+'\n'
+            CountLlave+=1
+            CountValue+=1
             self.registro()
         elif self.listaTokens[i].lexema == 'llave2':
             i+=1
-            NodeData+='registro->llaveCierra->}\n '
+            NodosCrear+='SimbolollaveC'+str(CountLlave)+'[label="SimboloLlave_C"]\n'
+            NodosCrear+='llaveC'+str(CountLlave)+'[label="}"]\n'
+            NodeData+='Registro'+str(CountRegistro-1)+'->SimbolollaveC'+str(CountLlave)+'->llaveC'+str(CountLlave)+'\n'
+            NodeData+='Registro'+str(CountRegistro-1)+'-> Registro'+str(CountRegistro)+'\n'
+            CountLlave+=1
             self.listRegisters.append(register)
             register=[]
             self.registro()
@@ -283,12 +316,19 @@ class GestorSintactico:
             pass
     
     def SeparadorRegistros(self):
-        global i, NodeData
+        global i, NodeData, NodosCrear, CountComa, CountRegistro,CountValue
         if self.listaTokens[i].lexema =='llave2':
             pass
         elif self.listaTokens[i].lexema == 'coma':
+            
+            
+            NodosCrear+='Value'+str(CountValue)+'[label="Value"]\n'
+            
+            NodeData+='Value'+str(CountValue-1)+'-> Value'+str(CountValue)+'\n'
+            CountValue+=1
+            
+            
             i+=1
-            NodeData+='registro->coma->,\n'
             self.registro()
         else:
             self.registro()
@@ -296,8 +336,9 @@ class GestorSintactico:
 
     ## EMPIEZA LA FUNCION IMPRIMIR
     def instruccion_Imprimir(self):
-        global i, ReturnText, contadorImprimir, NodeData
-        NodeData+='imprimir->ProcesoImprimir\n'
+        global i, ReturnText, contadorImprimir, NodeData, NodosCrear, CountProceso
+        NodosCrear+='ProcesoImprimir'+str(CountProceso)+'[label="ProcesoImprimir"]'
+
         if self.listaTokens[i].lexema == 'imprimir':
             NodeData+='ProcesoImprimir->tokenImprimir->imprimir\n'
             i+=1
@@ -665,6 +706,6 @@ class GestorSintactico:
 
         f.write(contenidoDot)
         f.close()
-        os.system("dot -Tpng ArchivosDots/archivoArbolDerivacion.dot -o Reportes/Arbol_De_Derivacion.pdf")
-        os.system("Reportes/Arbol_De_Derivacion.pdf")
+        os.system("dot -Tpdf ArchivosDots/archivoArbolDerivacion.dot -o ./Reportes/Arbol_De_Derivacion.pdf")
+        os.system("Arbol_De_Derivacion.pdf")
 
