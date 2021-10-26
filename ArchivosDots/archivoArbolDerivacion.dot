@@ -1,0 +1,57 @@
+digraph Arbol{
+{
+node [margin=0 fontsize=20 width=0.5 style=filleed]
+Instrucciones0[label="Instrucciones"]
+Instrucciones1[label="Instrucciones"]
+Instruccion1[label="Instruccion"]
+Simboloigual0[label="SimboloIgual"]
+igual0[label="="]
+SimboloCorchete0[label="SimboloCorchete"]
+CorcheteA0[label="["]
+ListClaves0[label="ListClaves"]
+Clave0[label="Clave"]
+Cadena0[label="Cadena"]
+SimboloComa0[label="Coma"]
+Coma0[label=","]
+Clave1[label="Clave"]
+Cadena1[label="Cadena"]
+SimboloComa1[label="Coma"]
+Coma1[label=","]
+Clave2[label="Clave"]
+Cadena2[label="Cadena"]
+SimboloComa2[label="Coma"]
+Coma2[label=","]
+Clave3[label="Clave"]
+Cadena3[label="Cadena"]
+SimboloComa3[label="Coma"]
+Coma3[label=","]
+Clave4[label="Clave"]
+Cadena4[label="Cadena"]
+SimboloCorchete1[label="SimboloCorchete"]
+CorcheteC1[label="]"]
+}inicio->Instrucciones0
+Instrucciones0-> Instruccion1
+Instruccion1->Proceso_Claves
+Proceso_Claves-> TokenClaves
+TokenClaves-> Claves
+Proceso_Claves-> Simboloigual0
+Simboloigual0->igual0
+Proceso_Claves-> SimboloCorchete0->CorcheteA0
+Proceso_Claves-> ListClaves0
+ListClaves0->Clave0
+Clave0->Cadena0->codigo
+Clave0-> SimboloComa0-> Coma0
+Clave0->Clave1
+Clave1->Cadena1->producto
+Clave1-> SimboloComa1-> Coma1
+Clave1->Clave2
+Clave2->Cadena2->precio_compra
+Clave2-> SimboloComa2-> Coma2
+Clave2->Clave3
+Clave3->Cadena3->precio_venta
+Clave3-> SimboloComa3-> Coma3
+Clave3->Clave4
+Clave4->Cadena4->stock
+Proceso_Claves-> SimboloCorchete1->CorcheteC1
+Instrucciones0-> Instrucciones1
+}

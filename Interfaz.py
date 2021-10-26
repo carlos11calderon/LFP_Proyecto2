@@ -87,6 +87,7 @@ class Ui_MainWindow(object):
         self.actionCargar.triggered.connect(self.addFile)
         self.actionAnalizar.triggered.connect(self.Analizar)
         self.actionTokens.triggered.connect(self.ReporteTokens)
+        self.actionArbol_de_derivacion.triggered.connect(self.ReporteArbol)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -113,6 +114,7 @@ class Ui_MainWindow(object):
     def Analizar(self):
      #   gestor.Analysis(self.txtCodigo.toPlainText())
         global listaTokens
+        self.plainTextEdit_2.clear()
         Text = self.txtCodigo.toPlainText()
         listaTokens = Auto.analizar(Text)
         textoSalida=gestorSintactico.analizar(listaTokens)
@@ -165,3 +167,7 @@ class Ui_MainWindow(object):
             )
         Archivo.write(contenidoHTML)
         Archivo.close()
+
+    def ReporteArbol(self):
+        gestorSintactico.ArbolDeDerivacion()
+    
