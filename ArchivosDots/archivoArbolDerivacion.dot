@@ -242,7 +242,19 @@ Entero23[label="Entero"]
 NumE23[label="4"]SimbolollaveC23[label="SimboloLlave_C"]
 llaveC23[label="}"]
 SimboloCorchete3[label="SimboloCorchete"]
-CorcheteC2[label="]"]
+CorcheteC3[label="]"]
+Instrucciones3[label="Instrucciones"]
+Instruccion3[label="Instruccion"]
+ProcesoImprimir0[label="ProcesoImprimir"]tokenImprimir0[label="tokenImprimir"]
+imprimir0[label="imprimir"]
+SimboloparentesisA0[label="SimboloparentesisA"]
+parentesisA0[label="("]
+Cadena17[label="SimboloparentesisA"]
+CadenaText17[label="HOla mundo"]
+SimboloparentesisC1[label="SimboloparentesisC"]
+parentesisC1[label=")"]
+SimboloPuntoyComa2[label="SimboloPuntoYComa"]
+puntoYComa2[label=";"]
 }inicio->Instrucciones0
 Instrucciones0-> Instruccion1
 Instruccion1->Proceso_Claves
@@ -435,4 +447,12 @@ Registro11->SimbolollaveC23->llaveC23
 Registro11-> Registro12
 Proceso_Registros-> SimboloCorchete3->CorcheteC3
 Instrucciones1-> Instrucciones2
+Instrucciones2-> Instruccion3
+Instruccion3->ProcesoImprimir0
+ProcesoImprimir0->tokenImprimir0->imprimir
+ProcesoImprimir0->SimboloparentesisA0->parentesisA0
+ProcesoImprimir0->Cadena17->CadenaText17
+ProcesoImprimir0->SimboloparentesisC1->parentesisC1
+ProcesoImprimir0->SimboloPuntoyComa2->puntoYComa2
+Instrucciones-> Instruccciones
 }

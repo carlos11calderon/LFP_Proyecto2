@@ -25,6 +25,8 @@ CountLlave=0
 CountValue=0
 CountEntero=0
 CountProceso=0
+CountSimboloPa=0
+countToken=0
 class GestorSintactico: 
     
     def __init__(self):
@@ -52,6 +54,7 @@ class GestorSintactico:
 
     def lista_Instrucciones(self):
         global i, NodeData, CountInstrucciones, NodosCrear, CountInstruccion, CountRegistro,CountListRegistro
+        global CountProceso
         CountInstrucciones+=1
         CountInstruccion+=1
         
@@ -79,12 +82,20 @@ class GestorSintactico:
             i+=1
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='imprimir':
-            NodeData+='Instruccion-> imprimir\n'
+            NodosCrear+='Instrucciones'+str(CountInstrucciones)+'[label="Instrucciones"]\n'
+            NodosCrear+='Instruccion'+str(CountInstruccion)+'[label="Instruccion"]\n'
+            NodosCrear+='ProcesoImprimir'+str(CountProceso)+'[label="ProcesoImprimir"]\n'
+            NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
+            NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoImprimir'+str(CountProceso)+'\n'
             self.instruccion_Imprimir()
             NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='imprimirln':
-            NodeData+='Instruccion-> imprimirln\n'
+            NodosCrear+='Instrucciones'+str(CountInstrucciones)+'[label="Instrucciones"]\n'
+            NodosCrear+='Instruccion'+str(CountInstruccion)+'[label="Instruccion"]\n'
+            NodosCrear+='ProcesoImprimirln'+str(CountProceso)+'[label="ProcesoImprimirln"]\n'
+            NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
+            NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoImprimirln'+str(CountProceso)+'\n'
             self.instruccion_Imprimirln()
             NodeData+='Instrucciones-> Instruccciones\n'
             self.lista_Instrucciones()
@@ -162,7 +173,7 @@ class GestorSintactico:
                     self.lista_Claves()
                     if self.listaTokens[i].lexema== 'corchete2':
                         NodosCrear+='SimboloCorchete'+str(CountSimboloCorchete)+'[label="SimboloCorchete"]\n'
-                        NodosCrear+='CorcheteC'+str(CountSimboloIgual)+'[label="]"]\n'
+                        NodosCrear+='CorcheteC'+str(CountSimboloCorchete)+'[label="]"]\n'
                         NodeData+='Proceso_Claves-> SimboloCorchete'+str(CountSimboloCorchete)+'->CorcheteC'+str(CountSimboloCorchete)+'\n'
                         i+=1
                         CountSimboloCorchete+=1
@@ -336,63 +347,89 @@ class GestorSintactico:
 
     ## EMPIEZA LA FUNCION IMPRIMIR
     def instruccion_Imprimir(self):
-        global i, ReturnText, contadorImprimir, NodeData, NodosCrear, CountProceso
-        NodosCrear+='ProcesoImprimir'+str(CountProceso)+'[label="ProcesoImprimir"]'
+        global i, ReturnText, CountSimboloIgual,contadorImprimir, NodeData, NodosCrear, CountProceso, countToken, CountSimboloPa, CountCadena
+        
 
         if self.listaTokens[i].lexema == 'imprimir':
-            NodeData+='ProcesoImprimir->tokenImprimir->imprimir\n'
+            NodosCrear+='tokenImprimir'+str(countToken)+'[label="tokenImprimir"]\n'
+            NodosCrear+='imprimir'+str(countToken)+'[label="imprimir"]\n'
+            NodeData+='ProcesoImprimir'+str(CountProceso)+'->tokenImprimir'+str(countToken)+'->imprimir\n'
             i+=1
             if self.listaTokens[i].lexema == 'parentesis1':
-                NodeData+='ProcesoImprimir->ParentesisAbre->(\n'
+                NodosCrear+='SimboloparentesisA'+str(CountSimboloPa)+'[label="SimboloparentesisA"]\n'
+                NodosCrear+='parentesisA'+str(CountSimboloPa)+'[label="("]\n'
+                NodeData+='ProcesoImprimir'+str(CountProceso)+'->SimboloparentesisA'+str(CountSimboloPa)+'->parentesisA'+str(CountSimboloPa)+'\n'
+                CountSimboloPa+=1
                 i+=1
                 if self.listaTokens[i].lexema == 'ComillaDoble':
-                    NodeData+='ProcesoImprimir->ComillaDoble1->"\n'
                     i+=1
                     if self.listaTokens[i].token == 'cadena':
                         text =  self.listaTokens[i].lexema
-                        NodeData+='ProcesoImprimir->cadena->'+text+'\n'
+                        NodosCrear+='Cadena'+str(CountCadena)+'[label="SimboloparentesisA"]\n'
+                        NodosCrear+='CadenaText'+str(CountCadena)+'[label="'+text+'"]\n'
+                        NodeData+='ProcesoImprimir'+str(CountProceso)+'->Cadena'+str(CountCadena)+'->CadenaText'+str(CountCadena)+'\n'
+                        CountCadena+=1
                         i+=1
                         if self.listaTokens[i].lexema == 'ComillaDoble':
                             i+=1
-                            NodeData+='ProcesoImprimir->ComillaDoble2->"\n'
                             if self.listaTokens[i].lexema== 'parentesis2':
-                                NodeData+='ProcesoImprimir->ParentesisCierre->\n'
+                                NodosCrear+='SimboloparentesisC'+str(CountSimboloPa)+'[label="SimboloparentesisC"]\n'
+                                NodosCrear+='parentesisC'+str(CountSimboloPa)+'[label=")"]\n'
+                                NodeData+='ProcesoImprimir'+str(CountProceso)+'->SimboloparentesisC'+str(CountSimboloPa)+'->parentesisC'+str(CountSimboloPa)+'\n'
+                                CountSimboloPa+=1
                                 i+=1
                                 if self.listaTokens[i].lexema== 'puntoycoma':
-                                    NodeData+='ProcesoImprimir->puntoYcoma->;\n'
+                                    NodosCrear+='SimboloPuntoyComa'+str(CountSimboloIgual)+'[label="SimboloPuntoYComa"]\n'
+                                    NodosCrear+='puntoYComa'+str(CountSimboloIgual)+'[label=";"]\n'
+                                    NodeData+='ProcesoImprimir'+str(CountProceso)+'->SimboloPuntoyComa'+str(CountSimboloIgual)+'->puntoYComa'+str(CountSimboloIgual)+'\n'
+                                    CountSimboloIgual+=1
                                     i+=1
                                     if contadorImprimir==0:
                                         ReturnText+=text
                                     else:
                                         ReturnText+='-->'+text
                                         contadorImprimir=0
+        CountProceso+=1
     ## Aquí Termina La Funcion Imprimir
 
     ##EMPIEZA LA FUNCION IMPRIMIRLN
     def instruccion_Imprimirln(self):
-        global i, ReturnText,contadorImprimir, NodeData
+        global i, ReturnText,contadorImprimir, NodeData, NodosCrear, CountSimboloPa, CountCadena, CountSimboloIgual
         NodeData+='imprimirln->ProcesoImprimirln\n'
         if self.listaTokens[i].lexema == 'imprimirln':
             i+=1
-            NodeData+='ProcesoImprimirln->TokenImprimirln->imprimirln\n'
+            NodosCrear+='tokenImprimirln'+str(countToken)+'[label="tokenImprimirln"]\n'
+            NodosCrear+='imprimirln'+str(countToken)+'[label="imprimirln"]\n'
+            NodeData+='ProcesoImprimirln'+str(CountProceso)+'->tokenImprimirln'+str(countToken)+'->imprimirln\n'
             if self.listaTokens[i].lexema == 'parentesis1':
-                NodeData+='ProcesoImprimirln->parentesisAbre->(\n'
+                NodosCrear+='SimboloparentesisA'+str(CountSimboloPa)+'[label="SimboloparentesisA"]\n'
+                NodosCrear+='parentesisA'+str(CountSimboloPa)+'[label="("]\n'
+                NodeData+='ProcesoImprimirln'+str(CountProceso)+'->SimboloparentesisA'+str(CountSimboloPa)+'->parentesisA'+str(CountSimboloPa)+'\n'
+                CountSimboloPa+=1
                 i+=1
                 if self.listaTokens[i].lexema == 'ComillaDoble':
-                    NodeData+='ProcesoImprimirln->ComillaDoble1->"\n'
                     i+=1
                     if self.listaTokens[i].token == 'cadena':
                         text = self.listaTokens[i].lexema
-                        NodeData+='ProcesoImprimirln->cadena->'+text+'\n'
+                        NodosCrear+='Cadena'+str(CountCadena)+'[label="SimboloparentesisA"]\n'
+                        NodosCrear+='CadenaText'+str(CountCadena)+'[label="'+text+'"]\n'
+                        NodeData+='ProcesoImprimirln'+str(CountProceso)+'->Cadena'+str(CountCadena)+'->CadenaText'+str(CountCadena)+'\n'
+                        CountCadena+=1
                         i+=1
                         if self.listaTokens[i].lexema == 'ComillaDoble':
                             NodeData+='ProcesoImprimirln->ComillaDobleCierra->"\n'
                             i+=1
                             if self.listaTokens[i].lexema== 'parentesis2':
-                                NodeData+='ProcesoImprimirln->ParentesisCierra->)\n'
+                                NodosCrear+='SimboloparentesisC'+str(CountSimboloPa)+'[label="SimboloparentesisC"]\n'
+                                NodosCrear+='parentesisC'+str(CountSimboloPa)+'[label=")"]\n'
+                                NodeData+='ProcesoImprimirln'+str(CountProceso)+'->SimboloparentesisC'+str(CountSimboloPa)+'->parentesisC'+str(CountSimboloPa)+'\n'
+                                CountSimboloPa+=1
                                 i+=1
                                 if self.listaTokens[i].lexema== 'puntoycoma':
-                                    NodeData+='ProcesoImprimirln->puntoYcoma->;\n'
+                                    NodosCrear+='SimboloPuntoyComa'+str(CountSimboloIgual)+'[label="SimboloPuntoYComa"]\n'
+                                    NodosCrear+='puntoYComa'+str(CountSimboloIgual)+'[label=";"]\n'
+                                    NodeData+='ProcesoImprimirln'+str(CountProceso)+'->SimboloPuntoyComa'+str(CountSimboloIgual)+'->puntoYComa'+str(CountSimboloIgual)+'\n'
+                                    CountSimboloIgual+=1
                                     i+=1
                                     if contadorImprimir==0:
                                         ReturnText+=text
