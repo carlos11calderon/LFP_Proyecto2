@@ -2,14 +2,13 @@ from Token import Token
 from Errores import Errores
 from prettytable import *
 from graphviz import *
-import os
+import os, webbrowser
 i=0
 register=[]
 ReturnText = ''
 contadorImprimir =1
 NodeData=''
 NodosCrear=''
-countNode=0
 CountInstrucciones=0
 CountInstruccion=0
 CountClave=0
@@ -35,23 +34,46 @@ class GestorSintactico:
         self.listClaves =[]
         self.listRegisters = []
         
-    def analizar(self, listaTokens):
-        global i
+    def analizar(self, listaTokens, listaErrores):
+        global i, ReturnText,NodeData, NodosCrear
+        ReturnText=NodeData=NodosCrear=''
         i=0
+        self.InicializarContadores()
         self.listaTokens = listaTokens
+        self.listaErrores = listaErrores
         self.listClaves=[]
         self.listRegisters=[]
         self.iniciar()
         return ReturnText
+
+    def InicializarContadores(self):
+        global contadorImprimir, NodeData, NodosCrear, CountInstrucciones, CountInstruccion, CountClave
+        global CountSimboloIgual, CountSimboloCorchete, CountListClaves,  CountListRegistro, CountCadena, CountComa
+        global CountRegistro, CountReal, CountLlave, CountValue, CountEntero, CountProceso, CountSimboloPa, countToken
+        CountInstrucciones=0
+        CountInstruccion=0
+        CountClave=0
+        CountSimboloIgual=0
+        CountSimboloCorchete=0
+        CountListClaves=0
+        CountListRegistro=0
+        CountCadena=0
+        CountComa=0
+        CountRegistro=0
+        CountReal=0
+        CountLlave=0
+        CountValue=0
+        CountEntero=0
+        CountProceso=0
+        CountSimboloPa=0
+        countToken=0
 
     def iniciar(self):
         global NodeData,CountInstrucciones,NodosCrear
         NodosCrear+='Instrucciones'+str(CountInstrucciones)+'[label="Instrucciones"]\n'
         NodeData+='inicio->Instrucciones'+str(CountInstrucciones)+'\n'
         self.lista_Instrucciones()
-        
-        
-
+      
     def lista_Instrucciones(self):
         global i, NodeData, CountInstrucciones, NodosCrear, CountInstruccion, CountRegistro,CountListRegistro
         global CountProceso
@@ -212,10 +234,7 @@ class GestorSintactico:
             NodosCrear+='Instruccion'+str(CountInstruccion)+'[label="Instruccion"]\n'
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'->Fin\n'
             print('fin analisis sintactico')
-        else:
-            pass
-        
-
+     
     ##EMPIEZA LAS FUNCIONES PARA LA INSTRUCCION DE CLAVES
     def instruccion_Claves(self):
         global i, NodeData, CountClave, CountSimboloIgual, NodosCrear, CountSimboloCorchete,CountListClaves
@@ -248,7 +267,18 @@ class GestorSintactico:
                         i+=1
                         CountSimboloCorchete+=1
                         print('finalizaron claves')
-
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "]"))
+                else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "["))
+            else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "="))
+        else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "claves"))
     def lista_Claves(self):
         global NodeData, CountListClaves, CountClave, NodosCrear
         NodosCrear+='Clave'+str(CountClave)+'[label="Clave"]\n'
@@ -272,9 +302,9 @@ class GestorSintactico:
             CountCadena+=1
             i+=1
             self.SeparadorClaves()
-        else: 
-            #creo que aqui va error
-            pass
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "cadena o ComillaDoble"))
 
     def SeparadorClaves(self):
         global i, NodeData, CountClave, CountComa, NodosCrear
@@ -324,6 +354,18 @@ class GestorSintactico:
                         i+=1
                         CountSimboloCorchete+=1
                         print('finalizaron registros')
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "]"))
+                else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "["))
+            else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "="))
+        else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "registros"))
     
     def lista_Registros(self):
         global NodeData, CountListRegistro, CountRegistro, NodosCrear,CountValue
@@ -345,7 +387,6 @@ class GestorSintactico:
             NodeData+='Value'+str(CountValue-1)+'->Cadena'+str(CountCadena)+'->CadenaTexto'+str(CountCadena)+'\n'
             CountCadena+=1
             register.append(cadena)
-            print(cadena)
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].token == 'entero':
@@ -355,7 +396,6 @@ class GestorSintactico:
             NodeData+='Value'+str(CountValue-1)+'->Entero'+str(CountEntero)+'->NumE'+str(CountEntero)+'\n'
             CountEntero+=1
             register.append(numeroEntero)
-            print(numeroEntero)
             i+=1
             self.SeparadorRegistros()
             self.registro()
@@ -366,7 +406,6 @@ class GestorSintactico:
             NodeData+='Value'+str(CountValue-1)+'->Real'+str(CountReal)+'->NumR'+str(CountReal)+'\n'
             CountReal+=1
             register.append(numeroEntero)
-            print(numeroEntero)
             i+=1
             self.SeparadorRegistros()
         elif self.listaTokens[i].lexema == 'llave1':
@@ -392,9 +431,9 @@ class GestorSintactico:
             self.listRegisters.append(register)
             register=[]
             self.registro()
-        else: 
-            #creo que aqui va error
-            pass
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "simbolo, valor o cadena"))
     
     def SeparadorRegistros(self):
         global i, NodeData, NodosCrear, CountComa, CountRegistro,CountValue
@@ -419,12 +458,10 @@ class GestorSintactico:
     def instruccion_Imprimir(self):
         global i, ReturnText, CountSimboloIgual,contadorImprimir, NodeData, NodosCrear, CountProceso, countToken, CountSimboloPa, CountCadena
         
-
         if self.listaTokens[i].lexema == 'imprimir':
             NodosCrear+='tokenImprimir'+str(countToken)+'[label="tokenImprimir"]\n'
             NodosCrear+='imprimir'+str(countToken)+'[label="imprimir"]\n'
             NodeData+='ProcesoImprimir'+str(CountProceso)+'->tokenImprimir'+str(countToken)+'->imprimir'+str(countToken)+'\n'
-            
             i+=1
             if self.listaTokens[i].lexema == 'parentesis1':
                 NodosCrear+='SimboloparentesisA'+str(CountSimboloPa)+'[label="SimboloparentesisA"]\n'
@@ -460,6 +497,27 @@ class GestorSintactico:
                                     else:
                                         ReturnText+='-->'+text
                                         contadorImprimir=0
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "]"))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "Cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "imprimir"))
         countToken+=1                              
         CountProceso+=1
     ## Aquí Termina La Funcion Imprimir
@@ -508,6 +566,27 @@ class GestorSintactico:
                                     else:
                                         ReturnText+='\n-->'+text+'\n'
                                         contadorImprimir=1
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "]"))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "Cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "imprimirln"))
         countToken+=1
         CountProceso+=1
     ##TERMINA LA FUNCION IMPRIMIRLN
@@ -541,6 +620,18 @@ class GestorSintactico:
                         print("cantidad de registros: "+str(len(self.listRegisters)))
                         ReturnText+='\n-->'+str(len(self.listRegisters))
                         contadorImprimir=1
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "conteo"))
         countToken+=1                
         CountProceso+=1
     ## empieza instrucciones promedio
@@ -559,7 +650,6 @@ class GestorSintactico:
                 CountSimboloPa+=1
                 i+=1
                 if self.listaTokens[i].lexema == 'ComillaDoble':
-                    
                     i+=1
                     if self.listaTokens[i].token == 'cadena':
                         field = self.listaTokens[i].lexema
@@ -569,7 +659,6 @@ class GestorSintactico:
                         CountCadena+=1
                         i+=1
                         if self.listaTokens[i].lexema == 'ComillaDoble':
-                            
                             i+=1
                             if self.listaTokens[i].lexema== 'parentesis2':
                                 NodosCrear+='SimboloparentesisC'+str(CountSimboloPa)+'[label="SimboloparentesisC"]\n'
@@ -586,7 +675,6 @@ class GestorSintactico:
                                     for p in range(len(self.listClaves)):
                                         if self.listClaves[p] == field:
                                             posicion = p
-                                        
                                     promedio = self.sacarPromedio(posicion)
                                     NodosCrear+='PromedioCampo'+str(CountReal)+'[label="'+str(promedio)+'"]\n'
                                     print('el promedio es: '+str(promedio))
@@ -595,6 +683,27 @@ class GestorSintactico:
                                     countToken+=1
                                     ReturnText+='\n-->'+str(promedio)
                                     contadorImprimir=1
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "promedio"))
         CountProceso+=1
     def sacarPromedio(self,posicion):
         summation=0
@@ -651,6 +760,27 @@ class GestorSintactico:
                                     NodeData+='Sumar'+str(countToken)+'->Sumatoria'+str(CountReal)+'\n'
                                     ReturnText+='\n-->'+str(summation)
                                     contadorImprimir=1
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "sumar"))
         countToken+=1
         CountProceso+=1
     def Sumar(self, position):
@@ -711,6 +841,33 @@ class GestorSintactico:
                                                     print('cantidad de valores con el valor '+str(value)+'son: '+str(ValueCount)) 
                                                     ReturnText+='\n-->'+str(ValueCount)
                                                     contadorImprimir=1
+                                        else:
+                                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                                    else:
+                                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "entero"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ","))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "contarsi"))
             countToken+=1
             CountProceso+=1
     def ejec_ContarSi(self, position, value):
@@ -750,6 +907,18 @@ class GestorSintactico:
                         print(datos)
                         ReturnText+='\n-->\n'+str(datos)+'\n'
                         contadorImprimir=1
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "datos"))
         countToken+=1
         CountProceso+=1                       
     def impDatos(self):
@@ -802,6 +971,27 @@ class GestorSintactico:
                                             print('valor maximo en '+field+" es: "+ str(ValueMax))
                                             ReturnText+='\n-->'+str(ValueMax)
                                             contadorImprimir=1
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "max"))
         countToken+=1
         CountProceso+=1
     def ValueMax(self, position):
@@ -855,6 +1045,27 @@ class GestorSintactico:
                                             print('valor minimo en '+field+" es: "+ str(ValueMin))
                                             ReturnText+='\n-->'+str(ValueMin)
                                             contadorImprimir=1
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "min"))
         countToken+=1
         CountProceso+=1
     def ValueMin(self, position):
@@ -905,6 +1116,27 @@ class GestorSintactico:
                                     ReturnText+='\n-->Revisar Reporte'
                                     contadorImprimir=1
                                     countToken+=1
+                                else:
+                                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                            else:
+                                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                        else:
+                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+                    else:
+                        e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "cadena"))
+                else:
+                    e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "ComillaDoble"))
+            else:
+                e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+                self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "("))
+        else:
+            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
+            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "promedio"))
         CountProceso+=1
     def generarReporteHtml(self, titulo):
         Filee = open("./Reportes/"+titulo+".html",'w')
@@ -973,5 +1205,5 @@ class GestorSintactico:
         f.write(contenidoDot)
         f.close()
         os.system("dot -Tpdf ArchivosDots/archivoArbolDerivacion.dot -o ./Reportes/Arbol_De_Derivacion.pdf")
-        os.system("Reportes/Arbol_De_Derivacion.pdf")
+        webbrowser.open("file:///"+os.getcwd()+"/Reportes/Arbol_De_Derivacion.pdf")
 

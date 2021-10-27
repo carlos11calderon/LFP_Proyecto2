@@ -1,5 +1,6 @@
 from tkinter.constants import E
 import token
+from Errores import Errores
 from Token import Token
 class AutomataLexico:
     
@@ -95,6 +96,9 @@ class AutomataLexico:
                 elif x=='%':
                     self.listaTokens.append(Token('%','Fin',fila,columna))
                     print('fin de lectura')
+                else:
+                    e='Error lexico en fila '+str(fila)+' y columna '+str(columna)+" revisar"
+                    self.listaErrores.append(Errores(fila, columna, e, "Simbolo, letra o digito"))
             elif estado==1:
                 if x=='\n':
                     fila+=1
@@ -141,16 +145,27 @@ class AutomataLexico:
                     lexema+=x
                     columna+=1
                     estado=8
+                elif x=='"':
+                    lexema=''
+                    columna+=1
+                    i-=1
+                    estado=8
+                else:
+                    e='Error lexico en fila '+str(fila)+' y columna '+str(columna)+" revisar"
+                    self.listaErrores.append(Errores(fila, columna, e, "caracter o cadena vacía"))
             elif estado==8:
                 if self.isCharacter(x)==True:
                     lexema+=x
                     columna+=1
-                if x=='"':
+                elif x=='"':
                     self.listaTokens.append(Token('cadena',lexema,fila,columna))
                     lexema=''
                     self.listaTokens.append(Token('"', 'ComillaDoble',fila,columna))
                     columna+=1
                     estado=0
+                else:
+                    e='Error lexico en fila '+str(fila)+' y columna '+str(columna)+" revisar"
+                    self.listaErrores.append(Errores(fila, columna, e, 'caracter o " '))
             elif estado==9:
                 if self.isNum(x)==True:
                     lexema+=x
@@ -202,9 +217,19 @@ class AutomataLexico:
                         self.listaTokens.append(Token(lexema,'min',fila,columna))
                     elif lexema=='exportarReporte':
                         self.listaTokens.append(Token(lexema,'exportar',fila,columna))
+                    else:
+                        e='Error lexico en fila '+str(fila)+' y columna '+str(columna)+" revisar comando"
+                        self.listaErrores.append(Errores(fila, columna, e, "Comando"))
                     lexema=''
                     i-=1
                     estado=0
             i+=1
         ##print('ultimo token--->'+self.listaTokens[473].lexema)
-        return self.listaTokens            
+        #print(self.listaTokens[526].lexema)
+        return self.listaTokens
+
+    def listE(self):
+        return self.listaErrores
+
+    def ListaErroresReporte(self):
+        return self.listaErrores           

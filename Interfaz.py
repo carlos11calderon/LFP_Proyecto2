@@ -17,6 +17,7 @@ gestorSintactico = GestorSintactico()
 Auto = AutomataLexico()
 gestor = Gestor()
 listaTokens=[]
+listaErrores=[]
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -113,11 +114,13 @@ class Ui_MainWindow(object):
 
     def Analizar(self):
      #   gestor.Analysis(self.txtCodigo.toPlainText())
-        global listaTokens
+        global listaTokens, listaErrores
         self.plainTextEdit_2.clear()
         Text = self.txtCodigo.toPlainText()
         listaTokens = Auto.analizar(Text)
-        textoSalida=gestorSintactico.analizar(listaTokens)
+        listaE = Auto.listE()
+        textoSalida=gestorSintactico.analizar(listaTokens,listaE)
+        listaErrores=gestorSintactico.listaErrores
         self.plainTextEdit_2.insertPlainText(textoSalida)
     
     def ReporteTokens(self):
@@ -167,6 +170,52 @@ class Ui_MainWindow(object):
             )
         Archivo.write(contenidoHTML)
         Archivo.close()
+
+    def ReporteErrores(self):
+        global listaErrores
+        Archivo = open("./Reportes/Errores.html",'w')
+        contenidoTabla = ''
+        for i in range(len(listaTokens)):
+            contenidoTabla+='<tr><th scope="row">'+str(i+1)+'</th>\n'
+            contenidoTabla+='<td>'+listaErrores[i].Descripcion+'</td>\n'
+            contenidoTabla+='<td>'+listaErrores[i].Token+'</td>\n'
+            contenidoTabla+='<td>'+str(listaErrores[i].Fila)+'</td>\n'
+            contenidoTabla+='<td>'+str(listaErrores[i].Columna)+'</td>\n</tr>'
+        contenidoHTML=(
+              '<!DOCTYPE html>\n'
+                ' <html>\n' 
+                '<head> \n'
+                '<meta charset="utf-8"> \n'
+                '<link href="assets/css/bootstrap-responsive.css" type="text/css" rel="stylesheet">\n'
+                '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet">\n'
+                '<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">\n'
+                '<link rel="stylesheet" type="text/css"  href="css/Style.css">'
+                '<title>Reporte de Tokens' '</title>\n'
+                '</head>\n' 
+                '<body>\n'
+                '<div class="container-fluid welcome-page" id="home">\n'
+                '   <div class="jumbotron">\n'
+                '       <h1>\n <span>\nTokens\n</span>\n </h1>\n<p>Reporte con todos los tokens, lexemas, sus fila y sus columna</p>\n'
+                '</div>'
+                '</div>'
+                '<div class="container-fluid " ><div class="jumbotron">'
+                '<table class="table table-responsive">\n'
+                '   <thead>\n'
+                        '<tr>\n'
+                            '<th scope="col">#</th>\n'
+                            '<th scope="col">Descripcion</th>\n'
+                            '<th scope="col">Token que se esperaba</th>\n'
+                            '<th scope="col">Fila</th>\n'
+                            '<th scope="col">Columna</th>\n'
+                        '</tr>\n'
+                    '</thead>\n'
+                    '<tbody>\n'
+                    +contenidoTabla+
+                    '</tbody>\n'
+                    '</table>'   
+                    '</div>'
+                '</div>\n''</body>\n''</html>\n'
+            )
 
     def ReporteArbol(self):
         gestorSintactico.ArbolDeDerivacion()
