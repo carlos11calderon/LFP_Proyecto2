@@ -232,7 +232,7 @@ class GestorSintactico:
             CountInstrucciones+=1
             CountInstruccion+=1
             NodosCrear+='Instruccion'+str(CountInstruccion)+'[label="Instruccion"]\n'
-            NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'->Fin\n'
+            NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'->Fin->"$"\n'
             print('fin analisis sintactico')
      
     ##EMPIEZA LAS FUNCIONES PARA LA INSTRUCCION DE CLAVES
@@ -819,37 +819,42 @@ class GestorSintactico:
                                 NodosCrear+='Coma'+str(CountComa)+'[label=","]\n'
                                 NodeData+='ProcesoContarSi'+str(CountProceso)+'->SimboloComa'+str(CountComa)+'->Coma'+str(CountComa)+'\n'
                                 CountComa+=1
-                                if self.listaTokens[i].token== 'entero':
+                                if self.listaTokens[i].lexema== 'ComillaDoble':
+                                    i+=1
+                                    if self.listaTokens[i].token== 'cadena':
+                                        value = self.listaTokens[i].lexema
+                                        i+=1
+                                        if self.listaTokens[i].lexema== 'ComillaDoble':
+                                            i+=1
+                                elif(self.listaTokens[i].token== 'entero'):
                                     value = self.listaTokens[i].lexema
                                     i+=1
-                                    if self.listaTokens[i].lexema== 'parentesis2':
+                                if self.listaTokens[i].lexema== 'parentesis2':
+                                    i+=1
+                                    NodosCrear+='SimboloparentesisC'+str(CountSimboloPa)+'[label="SimboloparentesisC"]\n'
+                                    NodosCrear+='parentesisC'+str(CountSimboloPa)+'[label=")"]\n'
+                                    NodeData+='ProcesoContarSi'+str(CountProceso)+'->SimboloparentesisC'+str(CountSimboloPa)+'->parentesisC'+str(CountSimboloPa)+'\n'
+                                    CountSimboloPa+=1
+                                    if self.listaTokens[i].lexema== 'puntoycoma':
                                         i+=1
-                                        NodosCrear+='SimboloparentesisC'+str(CountSimboloPa)+'[label="SimboloparentesisC"]\n'
-                                        NodosCrear+='parentesisC'+str(CountSimboloPa)+'[label=")"]\n'
-                                        NodeData+='ProcesoContarSi'+str(CountProceso)+'->SimboloparentesisC'+str(CountSimboloPa)+'->parentesisC'+str(CountSimboloPa)+'\n'
-                                        CountSimboloPa+=1
-                                        if self.listaTokens[i].lexema== 'puntoycoma':
-                                            i+=1
-                                            NodosCrear+='SimboloPuntoyComa'+str(CountSimboloIgual)+'[label="SimboloPuntoYComa"]\n'
-                                            NodosCrear+='puntoYComa'+str(CountSimboloIgual)+'[label=";"]\n'
-                                            NodeData+='ProcesoContarSi'+str(CountProceso)+'->SimboloPuntoyComa'+str(CountSimboloIgual)+'->puntoYComa'+str(CountSimboloIgual)+'\n'
-                                            CountSimboloIgual+=1
-                                            for p in range(len(self.listClaves)):
-                                                if self.listClaves[p] == field:
-                                                    position = p
-                                                    ValueCount = self.ejec_ContarSi(position, value)
-                                                    print('cantidad de valores con el valor '+str(value)+'son: '+str(ValueCount)) 
-                                                    ReturnText+='\n-->'+str(ValueCount)
-                                                    contadorImprimir=1
-                                        else:
-                                            e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
-                                            self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
+                                        NodosCrear+='SimboloPuntoyComa'+str(CountSimboloIgual)+'[label="SimboloPuntoYComa"]\n'
+                                        NodosCrear+='puntoYComa'+str(CountSimboloIgual)+'[label=";"]\n'
+                                        NodeData+='ProcesoContarSi'+str(CountProceso)+'->SimboloPuntoyComa'+str(CountSimboloIgual)+'->puntoYComa'+str(CountSimboloIgual)+'\n'
+                                        CountSimboloIgual+=1
+                                        for p in range(len(self.listClaves)):
+                                            if self.listClaves[p] == field:
+                                                position = p
+                                                ValueCount = self.ejec_ContarSi(position, value)
+                                                print('cantidad de valores con el valor '+str(value)+'son: '+str(ValueCount)) 
+                                                ReturnText+='\n-->'+str(ValueCount)
+                                                contadorImprimir=1
                                     else:
                                         e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
-                                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                                        self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ";"))
                                 else:
                                     e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
-                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "entero"))
+                                    self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ")"))
+                                
                             else:
                                 e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
                                 self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, ","))
@@ -868,8 +873,9 @@ class GestorSintactico:
         else:
             e='Error sintactico en fila '+str(self.listaTokens[i].Fila)+' y columna '+str(self.listaTokens[i].Columna)+" revisar"
             self.listaErrores.append(Errores(self.listaTokens[i].Fila, self.listaTokens[i].Columna, e, "contarsi"))
-            countToken+=1
-            CountProceso+=1
+        countToken+=1
+        CountProceso+=1
+    
     def ejec_ContarSi(self, position, value):
         summation=0
         for i in self.listRegisters:

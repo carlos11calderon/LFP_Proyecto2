@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from AutomataLexico import AutomataLexico
 from Gestor import *
 from GestorSintactico import *
+import webbrowser
 
 gestorSintactico = GestorSintactico()
 Auto = AutomataLexico()
@@ -89,6 +90,7 @@ class Ui_MainWindow(object):
         self.actionAnalizar.triggered.connect(self.Analizar)
         self.actionTokens.triggered.connect(self.ReporteTokens)
         self.actionArbol_de_derivacion.triggered.connect(self.ReporteArbol)
+        self.actionErrores.triggered.connect(self.ReporteErrores)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -170,12 +172,13 @@ class Ui_MainWindow(object):
             )
         Archivo.write(contenidoHTML)
         Archivo.close()
+        webbrowser.open("file:///"+os.getcwd()+"/Reportes/Tokens.html")
 
     def ReporteErrores(self):
         global listaErrores
         Archivo = open("./Reportes/Errores.html",'w')
         contenidoTabla = ''
-        for i in range(len(listaTokens)):
+        for i in range(len(listaErrores)):
             contenidoTabla+='<tr><th scope="row">'+str(i+1)+'</th>\n'
             contenidoTabla+='<td>'+listaErrores[i].Descripcion+'</td>\n'
             contenidoTabla+='<td>'+listaErrores[i].Token+'</td>\n'
@@ -190,12 +193,12 @@ class Ui_MainWindow(object):
                 '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet">\n'
                 '<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">\n'
                 '<link rel="stylesheet" type="text/css"  href="css/Style.css">'
-                '<title>Reporte de Tokens' '</title>\n'
+                '<title>Reporte de Errores' '</title>\n'
                 '</head>\n' 
                 '<body>\n'
                 '<div class="container-fluid welcome-page" id="home">\n'
                 '   <div class="jumbotron">\n'
-                '       <h1>\n <span>\nTokens\n</span>\n </h1>\n<p>Reporte con todos los tokens, lexemas, sus fila y sus columna</p>\n'
+                '       <h1>\n <span>Errores\n</span>\n </h1>\n<p>Reporte con todos los Errores de lexemas y gramaticas, sus fila y sus columnas generados durante la ejecucion</p>\n'
                 '</div>'
                 '</div>'
                 '<div class="container-fluid " ><div class="jumbotron">'
@@ -216,6 +219,9 @@ class Ui_MainWindow(object):
                     '</div>'
                 '</div>\n''</body>\n''</html>\n'
             )
+        Archivo.write(contenidoHTML)
+        Archivo.close()
+        webbrowser.open("file:///"+os.getcwd()+"/Reportes/Errores.html")
 
     def ReporteArbol(self):
         gestorSintactico.ArbolDeDerivacion()

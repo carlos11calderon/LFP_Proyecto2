@@ -23,7 +23,9 @@ class AutomataLexico:
             return False
 
     def isCharacter(self, Character):
-        if ((ord(Character)>=32 and ord(Character)!=34 and ord(Character)<=125 )):
+        if ((ord(Character)>=32 and ord(Character)!=34)):
+            return True
+        elif (160<=ord(Character)<=165 or ord(Character)==129 or ord(Character)==130):
             return True
         elif ord(Character)==34:
             return False
@@ -85,6 +87,7 @@ class AutomataLexico:
                     estado=2
                 elif x=='\n':
                     fila+=1
+                    columna=1
                 elif self.isNum(x)==True:
                     lexema+=x
                     columna+=1
@@ -93,8 +96,8 @@ class AutomataLexico:
                     lexema+=x
                     columna+=1
                     estado=11
-                elif x=='%':
-                    self.listaTokens.append(Token('%','Fin',fila,columna))
+                elif x=='$':
+                    self.listaTokens.append(Token('$','Fin',fila,columna))
                     print('fin de lectura')
                 else:
                     e='Error lexico en fila '+str(fila)+' y columna '+str(columna)+" revisar"
