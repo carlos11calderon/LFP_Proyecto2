@@ -4,35 +4,157 @@ node [margin=0 fontsize=20 width=0.5 style=filleed]
 Instrucciones0[label="Instrucciones"]
 Instrucciones1[label="Instrucciones"]
 Instruccion1[label="Instruccion"]
-Simboloigual0[label="SimboloIgual"]
-igual0[label="="]
+ProcesoImprimir0[label="ProcesoImprimir"]
+tokenImprimir0[label="tokenImprimir"]
+imprimir0[label="imprimir"]
+SimboloparentesisA0[label="SimboloparentesisA"]
+parentesisA0[label="("]
+Cadena0[label="Cadena"]
+CadenaText0[label="'/***** ***** ***** '"]
+SimboloparentesisC1[label="SimboloparentesisC"]
+parentesisC1[label=")"]
+SimboloPuntoyComa0[label="SimboloPuntoYComa"]
+puntoYComa0[label=";"]
+Instrucciones2[label="Instrucciones"]
+Instruccion2[label="Instruccion"]
+ProcesoImprimir1[label="ProcesoImprimir"]
+tokenImprimir1[label="tokenImprimir"]
+imprimir1[label="imprimir"]
+SimboloparentesisA2[label="SimboloparentesisA"]
+parentesisA2[label="("]
+Cadena1[label="Cadena"]
+CadenaText1[label="'Claves'"]
+SimboloparentesisC3[label="SimboloparentesisC"]
+parentesisC3[label=")"]
+SimboloPuntoyComa1[label="SimboloPuntoYComa"]
+puntoYComa1[label=";"]
+Instrucciones3[label="Instrucciones"]
+Instruccion3[label="Instruccion"]
+ProcesoImprimir2[label="ProcesoImprimir"]
+tokenImprimir2[label="tokenImprimir"]
+imprimir2[label="imprimir"]
+SimboloparentesisA4[label="SimboloparentesisA"]
+parentesisA4[label="("]
+Cadena2[label="Cadena"]
+CadenaText2[label="' ***** ***** *****\'"]
+SimboloparentesisC5[label="SimboloparentesisC"]
+parentesisC5[label=")"]
+SimboloPuntoyComa2[label="SimboloPuntoYComa"]
+puntoYComa2[label=";"]
+Instrucciones4[label="Instrucciones"]
+Instruccion4[label="Instruccion"]
+ProcesoImprimirln3[label="ProcesoImprimirln"]
+tokenImprimirln3[label="tokenImprimirln"]
+imprimirln3[label="imprimirln"]
+SimboloparentesisA6[label="SimboloparentesisA"]
+parentesisA6[label="("]
+Cadena3[label="SimboloparentesisA"]
+CadenaText3[label="' '"]
+SimboloparentesisC7[label="SimboloparentesisC"]
+parentesisC7[label=")"]
+Instrucciones5[label="Instrucciones"]
+Instruccion5[label="Instruccion"]
+ProcesoImprimirln4[label="ProcesoImprimirln"]
+tokenImprimirln4[label="tokenImprimirln"]
+imprimirln4[label="imprimirln"]
+SimboloparentesisA8[label="SimboloparentesisA"]
+parentesisA8[label="("]
+Cadena4[label="SimboloparentesisA"]
+CadenaText4[label="' '"]
+SimboloparentesisC9[label="SimboloparentesisC"]
+parentesisC9[label=")"]
+Instrucciones6[label="Instrucciones"]
+Instruccion6[label="Instruccion"]
+Simboloigual3[label="SimboloIgual"]
+igual3[label="="]
 SimboloCorchete0[label="SimboloCorchete"]
 CorcheteA0[label="["]
 ListClaves0[label="ListClaves"]
 Clave0[label="Clave"]
-Cadena0[label="Cadena"]
+Cadena5[label="Cadena"]
 SimboloComa0[label="Coma"]
 Coma0[label=","]
 Clave1[label="Clave"]
-Cadena1[label="Cadena"]
+Cadena6[label="Cadena"]
 SimboloComa1[label="Coma"]
 Coma1[label=","]
 Clave2[label="Clave"]
-Cadena2[label="Cadena"]
+Cadena7[label="Cadena"]
 SimboloComa2[label="Coma"]
 Coma2[label=","]
 Clave3[label="Clave"]
-Cadena3[label="Cadena"]
+Cadena8[label="Cadena"]
 SimboloComa3[label="Coma"]
 Coma3[label=","]
 Clave4[label="Clave"]
-Cadena4[label="Cadena"]
+Cadena9[label="Cadena"]
 SimboloCorchete1[label="SimboloCorchete"]
 CorcheteC1[label="]"]
-Instrucciones2[label="Instrucciones"]
-Instruccion2[label="Instruccion"]
-Simboloigual1[label="SimboloIgual"]
-igual1[label="="]
+Instrucciones7[label="Instrucciones"]
+Instruccion7[label="Instruccion"]
+ProcesoImprimir5[label="ProcesoImprimir"]
+tokenImprimir5[label="tokenImprimir"]
+imprimir5[label="imprimir"]
+SimboloparentesisA10[label="SimboloparentesisA"]
+parentesisA10[label="("]
+Cadena10[label="Cadena"]
+CadenaText10[label="'/***** ***** ***** '"]
+SimboloparentesisC11[label="SimboloparentesisC"]
+parentesisC11[label=")"]
+SimboloPuntoyComa4[label="SimboloPuntoYComa"]
+puntoYComa4[label=";"]
+Instrucciones8[label="Instrucciones"]
+Instruccion8[label="Instruccion"]
+ProcesoImprimir6[label="ProcesoImprimir"]
+tokenImprimir6[label="tokenImprimir"]
+imprimir6[label="imprimir"]
+SimboloparentesisA12[label="SimboloparentesisA"]
+parentesisA12[label="("]
+Cadena11[label="Cadena"]
+CadenaText11[label="'Registros'"]
+SimboloparentesisC13[label="SimboloparentesisC"]
+parentesisC13[label=")"]
+SimboloPuntoyComa5[label="SimboloPuntoYComa"]
+puntoYComa5[label=";"]
+Instrucciones9[label="Instrucciones"]
+Instruccion9[label="Instruccion"]
+ProcesoImprimir7[label="ProcesoImprimir"]
+tokenImprimir7[label="tokenImprimir"]
+imprimir7[label="imprimir"]
+SimboloparentesisA14[label="SimboloparentesisA"]
+parentesisA14[label="("]
+Cadena12[label="Cadena"]
+CadenaText12[label="' ***** ***** *****\'"]
+SimboloparentesisC15[label="SimboloparentesisC"]
+parentesisC15[label=")"]
+SimboloPuntoyComa6[label="SimboloPuntoYComa"]
+puntoYComa6[label=";"]
+Instrucciones10[label="Instrucciones"]
+Instruccion10[label="Instruccion"]
+ProcesoImprimirln8[label="ProcesoImprimirln"]
+tokenImprimirln8[label="tokenImprimirln"]
+imprimirln8[label="imprimirln"]
+SimboloparentesisA16[label="SimboloparentesisA"]
+parentesisA16[label="("]
+Cadena13[label="SimboloparentesisA"]
+CadenaText13[label="' '"]
+SimboloparentesisC17[label="SimboloparentesisC"]
+parentesisC17[label=")"]
+Instrucciones11[label="Instrucciones"]
+Instruccion11[label="Instruccion"]
+ProcesoImprimirln9[label="ProcesoImprimirln"]
+tokenImprimirln9[label="tokenImprimirln"]
+imprimirln9[label="imprimirln"]
+SimboloparentesisA18[label="SimboloparentesisA"]
+parentesisA18[label="("]
+Cadena14[label="SimboloparentesisA"]
+CadenaText14[label="' '"]
+SimboloparentesisC19[label="SimboloparentesisC"]
+parentesisC19[label=")"]
+Instrucciones12[label="Instrucciones"]
+Instruccion12[label="Instruccion"]
+Simboloigual7[label="SimboloIgual"]
+igual7[label="="]
 SimboloCorchete2[label="SimboloCorchete"]
 CorcheteA2[label="["]
 ListRegistros0[label="ListRegistros"]
@@ -43,16 +165,20 @@ Registro1[label="Registro"]
 listValues0[label="ListaValues"]
 Value0[label="Value"]
 Entero0[label="Entero"]
-NumE0[label="1"]Value1[label="Value"]
-Cadena5[label="Cadena"]
-CadenaTexto5[label="Barbacoa"]
+NumE0[label="1"]
+Value1[label="Value"]
+Cadena15[label="Cadena"]
+CadenaTexto15[label="Barbacoa"]
 Value2[label="Value"]
 Real0[label="Real"]
-NumR0[label="10.50"]Value3[label="Value"]
+NumR0[label="10.50"]
+Value3[label="Value"]
 Real1[label="Real"]
-NumR1[label="20.00"]Value4[label="Value"]
+NumR1[label="20.00"]
+Value4[label="Value"]
 Entero1[label="Entero"]
-NumE1[label="6"]SimbolollaveC1[label="SimboloLlave_C"]
+NumE1[label="6"]
+SimbolollaveC1[label="SimboloLlave_C"]
 llaveC1[label="}"]
 SimbolollaveA2[label="SimboloLlave_A"]
 llaveA2[label="{"]
@@ -60,16 +186,20 @@ Registro2[label="Registro"]
 listValues1[label="ListaValues"]
 Value5[label="Value"]
 Entero2[label="Entero"]
-NumE2[label="2"]Value6[label="Value"]
-Cadena6[label="Cadena"]
-CadenaTexto6[label="Salsa"]
+NumE2[label="2"]
+Value6[label="Value"]
+Cadena16[label="Cadena"]
+CadenaTexto16[label="Salsa"]
 Value7[label="Value"]
 Real2[label="Real"]
-NumR2[label="13.00"]Value8[label="Value"]
+NumR2[label="13.00"]
+Value8[label="Value"]
 Real3[label="Real"]
-NumR3[label="16.00"]Value9[label="Value"]
+NumR3[label="16.00"]
+Value9[label="Value"]
 Entero3[label="Entero"]
-NumE3[label="7"]SimbolollaveC3[label="SimboloLlave_C"]
+NumE3[label="7"]
+SimbolollaveC3[label="SimboloLlave_C"]
 llaveC3[label="}"]
 SimbolollaveA4[label="SimboloLlave_A"]
 llaveA4[label="{"]
@@ -77,16 +207,20 @@ Registro3[label="Registro"]
 listValues2[label="ListaValues"]
 Value10[label="Value"]
 Entero4[label="Entero"]
-NumE4[label="3"]Value11[label="Value"]
-Cadena7[label="Cadena"]
-CadenaTexto7[label="Mayonesa"]
+NumE4[label="3"]
+Value11[label="Value"]
+Cadena17[label="Cadena"]
+CadenaTexto17[label="Mayonesa"]
 Value12[label="Value"]
 Real4[label="Real"]
-NumR4[label="15.00"]Value13[label="Value"]
+NumR4[label="15.00"]
+Value13[label="Value"]
 Real5[label="Real"]
-NumR5[label="18.00"]Value14[label="Value"]
+NumR5[label="18.00"]
+Value14[label="Value"]
 Entero5[label="Entero"]
-NumE5[label="8"]SimbolollaveC5[label="SimboloLlave_C"]
+NumE5[label="8"]
+SimbolollaveC5[label="SimboloLlave_C"]
 llaveC5[label="}"]
 SimbolollaveA6[label="SimboloLlave_A"]
 llaveA6[label="{"]
@@ -94,16 +228,20 @@ Registro4[label="Registro"]
 listValues3[label="ListaValues"]
 Value15[label="Value"]
 Entero6[label="Entero"]
-NumE6[label="4"]Value16[label="Value"]
-Cadena8[label="Cadena"]
-CadenaTexto8[label="Mostaza"]
+NumE6[label="4"]
+Value16[label="Value"]
+Cadena18[label="Cadena"]
+CadenaTexto18[label="Mostaza"]
 Value17[label="Value"]
 Real6[label="Real"]
-NumR6[label="14.00"]Value18[label="Value"]
+NumR6[label="14.00"]
+Value18[label="Value"]
 Real7[label="Real"]
-NumR7[label="16.00"]Value19[label="Value"]
+NumR7[label="16.00"]
+Value19[label="Value"]
 Entero7[label="Entero"]
-NumE7[label="4"]SimbolollaveC7[label="SimboloLlave_C"]
+NumE7[label="4"]
+SimbolollaveC7[label="SimboloLlave_C"]
 llaveC7[label="}"]
 SimbolollaveA8[label="SimboloLlave_A"]
 llaveA8[label="{"]
@@ -111,16 +249,20 @@ Registro5[label="Registro"]
 listValues4[label="ListaValues"]
 Value20[label="Value"]
 Entero8[label="Entero"]
-NumE8[label="5"]Value21[label="Value"]
-Cadena9[label="Cadena"]
-CadenaTexto9[label="Frijol"]
+NumE8[label="5"]
+Value21[label="Value"]
+Cadena19[label="Cadena"]
+CadenaTexto19[label="Frijol"]
 Value22[label="Value"]
 Real8[label="Real"]
-NumR8[label="10.50"]Value23[label="Value"]
+NumR8[label="10.50"]
+Value23[label="Value"]
 Real9[label="Real"]
-NumR9[label="20.00"]Value24[label="Value"]
+NumR9[label="20.00"]
+Value24[label="Value"]
 Entero9[label="Entero"]
-NumE9[label="1"]SimbolollaveC9[label="SimboloLlave_C"]
+NumE9[label="1"]
+SimbolollaveC9[label="SimboloLlave_C"]
 llaveC9[label="}"]
 SimbolollaveA10[label="SimboloLlave_A"]
 llaveA10[label="{"]
@@ -128,16 +270,20 @@ Registro6[label="Registro"]
 listValues5[label="ListaValues"]
 Value25[label="Value"]
 Entero10[label="Entero"]
-NumE10[label="6"]Value26[label="Value"]
-Cadena10[label="Cadena"]
-CadenaTexto10[label="Azucar"]
+NumE10[label="6"]
+Value26[label="Value"]
+Cadena20[label="Cadena"]
+CadenaTexto20[label="Azucar"]
 Value27[label="Value"]
 Real10[label="Real"]
-NumR10[label="13.00"]Value28[label="Value"]
+NumR10[label="13.00"]
+Value28[label="Value"]
 Real11[label="Real"]
-NumR11[label="16.00"]Value29[label="Value"]
+NumR11[label="16.00"]
+Value29[label="Value"]
 Entero11[label="Entero"]
-NumE11[label="3"]SimbolollaveC11[label="SimboloLlave_C"]
+NumE11[label="3"]
+SimbolollaveC11[label="SimboloLlave_C"]
 llaveC11[label="}"]
 SimbolollaveA12[label="SimboloLlave_A"]
 llaveA12[label="{"]
@@ -145,16 +291,20 @@ Registro7[label="Registro"]
 listValues6[label="ListaValues"]
 Value30[label="Value"]
 Entero12[label="Entero"]
-NumE12[label="7"]Value31[label="Value"]
-Cadena11[label="Cadena"]
-CadenaTexto11[label="Carton de Huevos"]
+NumE12[label="7"]
+Value31[label="Value"]
+Cadena21[label="Cadena"]
+CadenaTexto21[label="Carton de Huevos"]
 Value32[label="Value"]
 Real12[label="Real"]
-NumR12[label="15.00"]Value33[label="Value"]
+NumR12[label="15.00"]
+Value33[label="Value"]
 Real13[label="Real"]
-NumR13[label="18.00"]Value34[label="Value"]
+NumR13[label="18.00"]
+Value34[label="Value"]
 Entero13[label="Entero"]
-NumE13[label="2"]SimbolollaveC13[label="SimboloLlave_C"]
+NumE13[label="2"]
+SimbolollaveC13[label="SimboloLlave_C"]
 llaveC13[label="}"]
 SimbolollaveA14[label="SimboloLlave_A"]
 llaveA14[label="{"]
@@ -162,16 +312,20 @@ Registro8[label="Registro"]
 listValues7[label="ListaValues"]
 Value35[label="Value"]
 Entero14[label="Entero"]
-NumE14[label="8"]Value36[label="Value"]
-Cadena12[label="Cadena"]
-CadenaTexto12[label="Sal en libra"]
+NumE14[label="8"]
+Value36[label="Value"]
+Cadena22[label="Cadena"]
+CadenaTexto22[label="Sal en libra"]
 Value37[label="Value"]
 Real14[label="Real"]
-NumR14[label="14.00"]Value38[label="Value"]
+NumR14[label="14.00"]
+Value38[label="Value"]
 Real15[label="Real"]
-NumR15[label="16.00"]Value39[label="Value"]
+NumR15[label="16.00"]
+Value39[label="Value"]
 Entero15[label="Entero"]
-NumE15[label="4"]SimbolollaveC15[label="SimboloLlave_C"]
+NumE15[label="4"]
+SimbolollaveC15[label="SimboloLlave_C"]
 llaveC15[label="}"]
 SimbolollaveA16[label="SimboloLlave_A"]
 llaveA16[label="{"]
@@ -179,16 +333,20 @@ Registro9[label="Registro"]
 listValues8[label="ListaValues"]
 Value40[label="Value"]
 Entero16[label="Entero"]
-NumE16[label="9"]Value41[label="Value"]
-Cadena13[label="Cadena"]
-CadenaTexto13[label="Consome"]
+NumE16[label="9"]
+Value41[label="Value"]
+Cadena23[label="Cadena"]
+CadenaTexto23[label="Consome"]
 Value42[label="Value"]
 Real16[label="Real"]
-NumR16[label="10.50"]Value43[label="Value"]
+NumR16[label="10.50"]
+Value43[label="Value"]
 Real17[label="Real"]
-NumR17[label="20.00"]Value44[label="Value"]
+NumR17[label="20.00"]
+Value44[label="Value"]
 Entero17[label="Entero"]
-NumE17[label="6"]SimbolollaveC17[label="SimboloLlave_C"]
+NumE17[label="6"]
+SimbolollaveC17[label="SimboloLlave_C"]
 llaveC17[label="}"]
 SimbolollaveA18[label="SimboloLlave_A"]
 llaveA18[label="{"]
@@ -196,16 +354,20 @@ Registro10[label="Registro"]
 listValues9[label="ListaValues"]
 Value45[label="Value"]
 Entero18[label="Entero"]
-NumE18[label="10"]Value46[label="Value"]
-Cadena14[label="Cadena"]
-CadenaTexto14[label="Arroz"]
+NumE18[label="10"]
+Value46[label="Value"]
+Cadena24[label="Cadena"]
+CadenaTexto24[label="Arroz"]
 Value47[label="Value"]
 Real18[label="Real"]
-NumR18[label="13.00"]Value48[label="Value"]
+NumR18[label="13.00"]
+Value48[label="Value"]
 Real19[label="Real"]
-NumR19[label="16.00"]Value49[label="Value"]
+NumR19[label="16.00"]
+Value49[label="Value"]
 Entero19[label="Entero"]
-NumE19[label="0"]SimbolollaveC19[label="SimboloLlave_C"]
+NumE19[label="0"]
+SimbolollaveC19[label="SimboloLlave_C"]
 llaveC19[label="}"]
 SimbolollaveA20[label="SimboloLlave_A"]
 llaveA20[label="{"]
@@ -213,16 +375,20 @@ Registro11[label="Registro"]
 listValues10[label="ListaValues"]
 Value50[label="Value"]
 Entero20[label="Entero"]
-NumE20[label="11"]Value51[label="Value"]
-Cadena15[label="Cadena"]
-CadenaTexto15[label="Cafe en sobre"]
+NumE20[label="11"]
+Value51[label="Value"]
+Cadena25[label="Cadena"]
+CadenaTexto25[label="Cafe en sobre"]
 Value52[label="Value"]
 Real20[label="Real"]
-NumR20[label="15.00"]Value53[label="Value"]
+NumR20[label="15.00"]
+Value53[label="Value"]
 Real21[label="Real"]
-NumR21[label="18.00"]Value54[label="Value"]
+NumR21[label="18.00"]
+Value54[label="Value"]
 Entero21[label="Entero"]
-NumE21[label="0"]SimbolollaveC21[label="SimboloLlave_C"]
+NumE21[label="0"]
+SimbolollaveC21[label="SimboloLlave_C"]
 llaveC21[label="}"]
 SimbolollaveA22[label="SimboloLlave_A"]
 llaveA22[label="{"]
@@ -230,62 +396,369 @@ Registro12[label="Registro"]
 listValues11[label="ListaValues"]
 Value55[label="Value"]
 Entero22[label="Entero"]
-NumE22[label="12"]Value56[label="Value"]
-Cadena16[label="Cadena"]
-CadenaTexto16[label="1/2 litro de agua pura"]
+NumE22[label="12"]
+Value56[label="Value"]
+Cadena26[label="Cadena"]
+CadenaTexto26[label="1/2 litro de agua pura"]
 Value57[label="Value"]
 Real22[label="Real"]
-NumR22[label="14.00"]Value58[label="Value"]
+NumR22[label="14.00"]
+Value58[label="Value"]
 Real23[label="Real"]
-NumR23[label="16.00"]Value59[label="Value"]
+NumR23[label="16.00"]
+Value59[label="Value"]
 Entero23[label="Entero"]
-NumE23[label="4"]SimbolollaveC23[label="SimboloLlave_C"]
+NumE23[label="4"]
+SimbolollaveC23[label="SimboloLlave_C"]
 llaveC23[label="}"]
 SimboloCorchete3[label="SimboloCorchete"]
 CorcheteC3[label="]"]
-Instrucciones3[label="Instrucciones"]
-Instruccion3[label="Instruccion"]
-ProcesoImprimir0[label="ProcesoImprimir"]tokenImprimir0[label="tokenImprimir"]
-imprimir0[label="imprimir"]
-SimboloparentesisA0[label="SimboloparentesisA"]
-parentesisA0[label="("]
-Cadena17[label="SimboloparentesisA"]
-CadenaText17[label="HOla mundo"]
-SimboloparentesisC1[label="SimboloparentesisC"]
-parentesisC1[label=")"]
-SimboloPuntoyComa2[label="SimboloPuntoYComa"]
-puntoYComa2[label=";"]
+Instrucciones13[label="Instrucciones"]
+Instruccion13[label="Instruccion"]
+ProcesoImprimirln10[label="ProcesoImprimirln"]
+tokenImprimirln10[label="tokenImprimirln"]
+imprimirln10[label="imprimirln"]
+SimboloparentesisA20[label="SimboloparentesisA"]
+parentesisA20[label="("]
+Cadena27[label="SimboloparentesisA"]
+CadenaText27[label="'/***** ***** ***** Conteo ***** ***** *****\'"]
+SimboloparentesisC21[label="SimboloparentesisC"]
+parentesisC21[label=")"]
+SimboloPuntoyComa8[label="SimboloPuntoYComa"]
+puntoYComa8[label=";"]
+Instrucciones14[label="Instrucciones"]
+Instruccion14[label="Instruccion"]
+ProcesoConteo11[label="ProcesoConteo"]
+tokenConteo11[label="tokenConteo"]
+Conteo11[label="Conteo"]
+SimboloparentesisA22[label="SimboloparentesisA"]
+parentesisA22[label="("]
+SimboloparentesisC23[label="SimboloparentesisC"]
+parentesisC23[label=")"]
+SimboloPuntoyComa9[label="SimboloPuntoYComa"]
+puntoYComa9[label=";"]
+Instrucciones15[label="Instrucciones"]
+Instruccion15[label="Instruccion"]
+ProcesoImprimirln12[label="ProcesoImprimirln"]
+tokenImprimirln12[label="tokenImprimirln"]
+imprimirln12[label="imprimirln"]
+SimboloparentesisA24[label="SimboloparentesisA"]
+parentesisA24[label="("]
+Cadena28[label="SimboloparentesisA"]
+CadenaText28[label="'/***** ***** ***** Promedio ***** ***** *****\'"]
+SimboloparentesisC25[label="SimboloparentesisC"]
+parentesisC25[label=")"]
+SimboloPuntoyComa10[label="SimboloPuntoYComa"]
+puntoYComa10[label=";"]
+Instrucciones16[label="Instrucciones"]
+Instruccion16[label="Instruccion"]
+ProcesoPromedio13[label="ProcesoPromedio"]
+tokenPromedio13[label="tokenPromedio"]
+Promedio13[label="Promedio"]
+SimboloparentesisA26[label="SimboloparentesisA"]
+parentesisA26[label="("]
+Cadena29[label="SimboloparentesisA"]
+CadenaText29[label="stock"]
+SimboloparentesisC27[label="SimboloparentesisC"]
+parentesisC27[label=")"]
+SimboloPuntoyComa11[label="SimboloPuntoYComa"]
+puntoYComa11[label=";"]
+PromedioCampo24[label="3.75"]
+Instrucciones17[label="Instrucciones"]
+Instruccion17[label="Instruccion"]
+ProcesoImprimirln14[label="ProcesoImprimirln"]
+tokenImprimirln14[label="tokenImprimirln"]
+imprimirln14[label="imprimirln"]
+SimboloparentesisA28[label="SimboloparentesisA"]
+parentesisA28[label="("]
+Cadena30[label="SimboloparentesisA"]
+CadenaText30[label="'/***** ***** ***** Contar si ***** ***** *****\'"]
+SimboloparentesisC29[label="SimboloparentesisC"]
+parentesisC29[label=")"]
+SimboloPuntoyComa12[label="SimboloPuntoYComa"]
+puntoYComa12[label=";"]
+Instrucciones18[label="Instrucciones"]
+Instruccion18[label="Instruccion"]
+ProcesoContarSi15[label="ProcesoContarSi"]
+tokenContarSi15[label="tokenContarSi"]
+ContarSi15[label="ContarSi"]
+SimboloparentesisA30[label="SimboloparentesisA"]
+parentesisA30[label="("]
+Cadena31[label="Cadena"]
+CadenaText31[label="stock"]
+SimboloComa4[label="SimboloComa"]
+Coma4[label=","]
+SimboloparentesisC31[label="SimboloparentesisC"]
+parentesisC31[label=")"]
+SimboloPuntoyComa13[label="SimboloPuntoYComa"]
+puntoYComa13[label=";"]
+Instrucciones19[label="Instrucciones"]
+Instruccion19[label="Instruccion"]
+ProcesoContarSi16[label="ProcesoContarSi"]
+tokenContarSi16[label="tokenContarSi"]
+ContarSi16[label="ContarSi"]
+SimboloparentesisA32[label="SimboloparentesisA"]
+parentesisA32[label="("]
+Cadena32[label="Cadena"]
+CadenaText32[label="stock"]
+SimboloComa5[label="SimboloComa"]
+Coma5[label=","]
+SimboloparentesisC33[label="SimboloparentesisC"]
+parentesisC33[label=")"]
+SimboloPuntoyComa14[label="SimboloPuntoYComa"]
+puntoYComa14[label=";"]
+Instrucciones20[label="Instrucciones"]
+Instruccion20[label="Instruccion"]
+ProcesoContarSi17[label="ProcesoContarSi"]
+tokenContarSi17[label="tokenContarSi"]
+ContarSi17[label="ContarSi"]
+SimboloparentesisA34[label="SimboloparentesisA"]
+parentesisA34[label="("]
+Cadena33[label="Cadena"]
+CadenaText33[label="stock"]
+SimboloComa6[label="SimboloComa"]
+Coma6[label=","]
+SimboloparentesisC35[label="SimboloparentesisC"]
+parentesisC35[label=")"]
+SimboloPuntoyComa15[label="SimboloPuntoYComa"]
+puntoYComa15[label=";"]
+Instrucciones21[label="Instrucciones"]
+Instruccion21[label="Instruccion"]
+ProcesoImprimirln18[label="ProcesoImprimirln"]
+tokenImprimirln18[label="tokenImprimirln"]
+imprimirln18[label="imprimirln"]
+SimboloparentesisA36[label="SimboloparentesisA"]
+parentesisA36[label="("]
+Cadena34[label="SimboloparentesisA"]
+CadenaText34[label="'/***** ***** ***** Datos ***** ***** *****\'"]
+SimboloparentesisC37[label="SimboloparentesisC"]
+parentesisC37[label=")"]
+SimboloPuntoyComa16[label="SimboloPuntoYComa"]
+puntoYComa16[label=";"]
+Instrucciones22[label="Instrucciones"]
+Instruccion22[label="Instruccion"]
+ProcesoDatos19[label="ProcesoDatos"]
+tokenDatos19[label="tokenDatos"]
+Datos19[label="Datos"]
+SimboloparentesisA38[label="SimboloparentesisA"]
+parentesisA38[label="("]
+SimboloparentesisC39[label="SimboloparentesisC"]
+parentesisC39[label=")"]
+SimboloPuntoyComa17[label="SimboloPuntoYComa"]
+puntoYComa17[label=";"]
+Instrucciones23[label="Instrucciones"]
+Instruccion23[label="Instruccion"]
+ProcesoImprimirln20[label="ProcesoImprimirln"]
+tokenImprimirln20[label="tokenImprimirln"]
+imprimirln20[label="imprimirln"]
+SimboloparentesisA40[label="SimboloparentesisA"]
+parentesisA40[label="("]
+Cadena35[label="SimboloparentesisA"]
+CadenaText35[label="'/***** ***** ***** Sumar ***** ***** *****\'"]
+SimboloparentesisC41[label="SimboloparentesisC"]
+parentesisC41[label=")"]
+SimboloPuntoyComa18[label="SimboloPuntoYComa"]
+puntoYComa18[label=";"]
+Instrucciones24[label="Instrucciones"]
+Instruccion24[label="Instruccion"]
+ProcesoSumar21[label="ProcesoSumar"]
+tokenSumar21[label="tokenSumar"]
+Sumar21[label="Sumar"]
+SimboloparentesisA42[label="SimboloparentesisA"]
+parentesisA42[label="("]
+Cadena36[label="Cadena"]
+CadenaText36[label="stock"]
+SimboloparentesisC43[label="SimboloparentesisC"]
+parentesisC43[label=")"]
+SimboloPuntoyComa19[label="SimboloPuntoYComa"]
+puntoYComa19[label=";"]
+Sumatoria25[label="45.0"]
+Instrucciones25[label="Instrucciones"]
+Instruccion25[label="Instruccion"]
+ProcesoImprimirln22[label="ProcesoImprimirln"]
+tokenImprimirln22[label="tokenImprimirln"]
+imprimirln22[label="imprimirln"]
+SimboloparentesisA44[label="SimboloparentesisA"]
+parentesisA44[label="("]
+Cadena37[label="SimboloparentesisA"]
+CadenaText37[label="'/***** ***** ***** Maximo ***** ***** *****\'"]
+SimboloparentesisC45[label="SimboloparentesisC"]
+parentesisC45[label=")"]
+SimboloPuntoyComa20[label="SimboloPuntoYComa"]
+puntoYComa20[label=";"]
+Instrucciones26[label="Instrucciones"]
+Instruccion26[label="Instruccion"]
+ProcesoMax23[label="ProcesoMax"]
+tokenMax23[label="tokenMax"]
+Max23[label="Max"]
+SimboloparentesisA46[label="SimboloparentesisA"]
+parentesisA46[label="("]
+Cadena38[label="Cadena"]
+CadenaText38[label="precio_venta"]
+SimboloparentesisC47[label="SimboloparentesisC"]
+parentesisC47[label=")"]
+SimboloPuntoyComa21[label="SimboloPuntoYComa"]
+puntoYComa21[label=";"]
+Instrucciones27[label="Instrucciones"]
+Instruccion27[label="Instruccion"]
+ProcesoImprimirln24[label="ProcesoImprimirln"]
+tokenImprimirln24[label="tokenImprimirln"]
+imprimirln24[label="imprimirln"]
+SimboloparentesisA48[label="SimboloparentesisA"]
+parentesisA48[label="("]
+Cadena39[label="SimboloparentesisA"]
+CadenaText39[label="'/***** ***** ***** Minimo ***** ***** *****\'"]
+SimboloparentesisC49[label="SimboloparentesisC"]
+parentesisC49[label=")"]
+SimboloPuntoyComa22[label="SimboloPuntoYComa"]
+puntoYComa22[label=";"]
+Instrucciones28[label="Instrucciones"]
+Instruccion28[label="Instruccion"]
+ProcesoMin25[label="ProcesoMin"]
+tokenMin25[label="tokenMin"]
+Min25[label="Min"]
+SimboloparentesisA50[label="SimboloparentesisA"]
+parentesisA50[label="("]
+Cadena40[label="Cadena"]
+CadenaText40[label="precio_compra"]
+SimboloparentesisC51[label="SimboloparentesisC"]
+parentesisC51[label=")"]
+SimboloPuntoyComa23[label="SimboloPuntoYComa"]
+puntoYComa23[label=";"]
+Instrucciones29[label="Instrucciones"]
+Instruccion29[label="Instruccion"]
+ProcesoImprimirln26[label="ProcesoImprimirln"]
+tokenImprimirln26[label="tokenImprimirln"]
+imprimirln26[label="imprimirln"]
+SimboloparentesisA52[label="SimboloparentesisA"]
+parentesisA52[label="("]
+Cadena41[label="SimboloparentesisA"]
+CadenaText41[label="'/***** ***** ***** Exportando Reporte ***** ***** *****\'"]
+SimboloparentesisC53[label="SimboloparentesisC"]
+parentesisC53[label=")"]
+SimboloPuntoyComa24[label="SimboloPuntoYComa"]
+puntoYComa24[label=";"]
+Instrucciones30[label="Instrucciones"]
+Instruccion30[label="Instruccion"]
+ProcesoExportar27[label="ProcesoExportar"]
+tokenExportar27[label="tokenExportar"]
+Exportar27[label="Exportar"]
+SimboloparentesisA54[label="SimboloparentesisA"]
+parentesisA54[label="("]
+Cadena42[label="SimboloparentesisA"]
+CadenaText42[label="Reporte HTML de abarrotera"]
+SimboloparentesisC55[label="SimboloparentesisC"]
+parentesisC55[label=")"]
+SimboloPuntoyComa25[label="SimboloPuntoYComa"]
+puntoYComa25[label=";"]
+Instruccion31[label="Instruccion"]
 }inicio->Instrucciones0
 Instrucciones0-> Instruccion1
-Instruccion1->Proceso_Claves
+Instruccion1->ProcesoImprimir0
+ProcesoImprimir0->tokenImprimir0->imprimir0
+ProcesoImprimir0->SimboloparentesisA0->parentesisA0
+ProcesoImprimir0->Cadena0->CadenaText0
+ProcesoImprimir0->SimboloparentesisC1->parentesisC1
+ProcesoImprimir0->SimboloPuntoyComa0->puntoYComa0
+Instrucciones0-> Instrucciones1
+Instrucciones1-> Instruccion2
+Instruccion2->ProcesoImprimir1
+ProcesoImprimir1->tokenImprimir1->imprimir1
+ProcesoImprimir1->SimboloparentesisA2->parentesisA2
+ProcesoImprimir1->Cadena1->CadenaText1
+ProcesoImprimir1->SimboloparentesisC3->parentesisC3
+ProcesoImprimir1->SimboloPuntoyComa1->puntoYComa1
+Instrucciones1-> Instrucciones2
+Instrucciones2-> Instruccion3
+Instruccion3->ProcesoImprimir2
+ProcesoImprimir2->tokenImprimir2->imprimir2
+ProcesoImprimir2->SimboloparentesisA4->parentesisA4
+ProcesoImprimir2->Cadena2->CadenaText2
+ProcesoImprimir2->SimboloparentesisC5->parentesisC5
+ProcesoImprimir2->SimboloPuntoyComa2->puntoYComa2
+Instrucciones2-> Instrucciones3
+Instrucciones3-> Instruccion4
+Instruccion4->ProcesoImprimirln3
+ProcesoImprimirln3->tokenImprimirln3->imprimirln3
+ProcesoImprimirln3->SimboloparentesisA6->parentesisA6
+ProcesoImprimirln3->Cadena3->CadenaText3
+ProcesoImprimirln3->SimboloparentesisC7->parentesisC7
+Instrucciones3-> Instrucciones4
+Instrucciones4-> Instruccion5
+Instruccion5->ProcesoImprimirln4
+ProcesoImprimirln4->tokenImprimirln4->imprimirln4
+ProcesoImprimirln4->SimboloparentesisA8->parentesisA8
+ProcesoImprimirln4->Cadena4->CadenaText4
+ProcesoImprimirln4->SimboloparentesisC9->parentesisC9
+Instrucciones4-> Instrucciones5
+Instrucciones5-> Instruccion6
+Instruccion6->Proceso_Claves
 Proceso_Claves-> TokenClaves
 TokenClaves-> Claves
-Proceso_Claves-> Simboloigual0
-Simboloigual0->igual0
+Proceso_Claves-> Simboloigual3
+Simboloigual3->igual3
 Proceso_Claves-> SimboloCorchete0->CorcheteA0
 Proceso_Claves-> ListClaves0
 ListClaves0->Clave0
-Clave0->Cadena0->codigo
+Clave0->Cadena5->codigo
 Clave0-> SimboloComa0-> Coma0
 Clave0->Clave1
-Clave1->Cadena1->producto
+Clave1->Cadena6->producto
 Clave1-> SimboloComa1-> Coma1
 Clave1->Clave2
-Clave2->Cadena2->precio_compra
+Clave2->Cadena7->precio_compra
 Clave2-> SimboloComa2-> Coma2
 Clave2->Clave3
-Clave3->Cadena3->precio_venta
+Clave3->Cadena8->precio_venta
 Clave3-> SimboloComa3-> Coma3
 Clave3->Clave4
-Clave4->Cadena4->stock
+Clave4->Cadena9->stock
 Proceso_Claves-> SimboloCorchete1->CorcheteC1
-Instrucciones0-> Instrucciones1
-Instrucciones1-> Instruccion2
-Instruccion2->Proceso_Registros
+Instrucciones5-> Instrucciones6
+Instrucciones6-> Instruccion7
+Instruccion7->ProcesoImprimir5
+ProcesoImprimir5->tokenImprimir5->imprimir5
+ProcesoImprimir5->SimboloparentesisA10->parentesisA10
+ProcesoImprimir5->Cadena10->CadenaText10
+ProcesoImprimir5->SimboloparentesisC11->parentesisC11
+ProcesoImprimir5->SimboloPuntoyComa4->puntoYComa4
+Instrucciones6-> Instrucciones7
+Instrucciones7-> Instruccion8
+Instruccion8->ProcesoImprimir6
+ProcesoImprimir6->tokenImprimir6->imprimir6
+ProcesoImprimir6->SimboloparentesisA12->parentesisA12
+ProcesoImprimir6->Cadena11->CadenaText11
+ProcesoImprimir6->SimboloparentesisC13->parentesisC13
+ProcesoImprimir6->SimboloPuntoyComa5->puntoYComa5
+Instrucciones7-> Instrucciones8
+Instrucciones8-> Instruccion9
+Instruccion9->ProcesoImprimir7
+ProcesoImprimir7->tokenImprimir7->imprimir7
+ProcesoImprimir7->SimboloparentesisA14->parentesisA14
+ProcesoImprimir7->Cadena12->CadenaText12
+ProcesoImprimir7->SimboloparentesisC15->parentesisC15
+ProcesoImprimir7->SimboloPuntoyComa6->puntoYComa6
+Instrucciones8-> Instrucciones9
+Instrucciones9-> Instruccion10
+Instruccion10->ProcesoImprimirln8
+ProcesoImprimirln8->tokenImprimirln8->imprimirln8
+ProcesoImprimirln8->SimboloparentesisA16->parentesisA16
+ProcesoImprimirln8->Cadena13->CadenaText13
+ProcesoImprimirln8->SimboloparentesisC17->parentesisC17
+Instrucciones9-> Instrucciones10
+Instrucciones10-> Instruccion11
+Instruccion11->ProcesoImprimirln9
+ProcesoImprimirln9->tokenImprimirln9->imprimirln9
+ProcesoImprimirln9->SimboloparentesisA18->parentesisA18
+ProcesoImprimirln9->Cadena14->CadenaText14
+ProcesoImprimirln9->SimboloparentesisC19->parentesisC19
+Instrucciones10-> Instrucciones11
+Instrucciones11-> Instruccion12
+Instruccion12->Proceso_Registros
 Proceso_Registros-> TokenRegistros
 TokenRegistros-> Registros
-Proceso_Registros-> Simboloigual1
-Simboloigual1->igual1
+Proceso_Registros-> Simboloigual7
+Simboloigual7->igual7
 Proceso_Registros-> SimboloCorchete2->CorcheteA2
 Proceso_Registros-> ListRegistros0
 ListRegistros0->Registro0
@@ -293,7 +766,7 @@ Registro0->SimbolollaveA0->llaveA0
 Registro0->listValues0->Value0
 Value0->Entero0->NumE0
 Value0-> Value1
-Value1->Cadena5->CadenaTexto5
+Value1->Cadena15->CadenaTexto15
 Value1-> Value2
 Value2->Real0->NumR0
 Value2-> Value3
@@ -306,7 +779,7 @@ Registro1->SimbolollaveA2->llaveA2
 Registro1->listValues1->Value5
 Value5->Entero2->NumE2
 Value5-> Value6
-Value6->Cadena6->CadenaTexto6
+Value6->Cadena16->CadenaTexto16
 Value6-> Value7
 Value7->Real2->NumR2
 Value7-> Value8
@@ -319,7 +792,7 @@ Registro2->SimbolollaveA4->llaveA4
 Registro2->listValues2->Value10
 Value10->Entero4->NumE4
 Value10-> Value11
-Value11->Cadena7->CadenaTexto7
+Value11->Cadena17->CadenaTexto17
 Value11-> Value12
 Value12->Real4->NumR4
 Value12-> Value13
@@ -332,7 +805,7 @@ Registro3->SimbolollaveA6->llaveA6
 Registro3->listValues3->Value15
 Value15->Entero6->NumE6
 Value15-> Value16
-Value16->Cadena8->CadenaTexto8
+Value16->Cadena18->CadenaTexto18
 Value16-> Value17
 Value17->Real6->NumR6
 Value17-> Value18
@@ -345,7 +818,7 @@ Registro4->SimbolollaveA8->llaveA8
 Registro4->listValues4->Value20
 Value20->Entero8->NumE8
 Value20-> Value21
-Value21->Cadena9->CadenaTexto9
+Value21->Cadena19->CadenaTexto19
 Value21-> Value22
 Value22->Real8->NumR8
 Value22-> Value23
@@ -358,7 +831,7 @@ Registro5->SimbolollaveA10->llaveA10
 Registro5->listValues5->Value25
 Value25->Entero10->NumE10
 Value25-> Value26
-Value26->Cadena10->CadenaTexto10
+Value26->Cadena20->CadenaTexto20
 Value26-> Value27
 Value27->Real10->NumR10
 Value27-> Value28
@@ -371,7 +844,7 @@ Registro6->SimbolollaveA12->llaveA12
 Registro6->listValues6->Value30
 Value30->Entero12->NumE12
 Value30-> Value31
-Value31->Cadena11->CadenaTexto11
+Value31->Cadena21->CadenaTexto21
 Value31-> Value32
 Value32->Real12->NumR12
 Value32-> Value33
@@ -384,7 +857,7 @@ Registro7->SimbolollaveA14->llaveA14
 Registro7->listValues7->Value35
 Value35->Entero14->NumE14
 Value35-> Value36
-Value36->Cadena12->CadenaTexto12
+Value36->Cadena22->CadenaTexto22
 Value36-> Value37
 Value37->Real14->NumR14
 Value37-> Value38
@@ -397,7 +870,7 @@ Registro8->SimbolollaveA16->llaveA16
 Registro8->listValues8->Value40
 Value40->Entero16->NumE16
 Value40-> Value41
-Value41->Cadena13->CadenaTexto13
+Value41->Cadena23->CadenaTexto23
 Value41-> Value42
 Value42->Real16->NumR16
 Value42-> Value43
@@ -410,7 +883,7 @@ Registro9->SimbolollaveA18->llaveA18
 Registro9->listValues9->Value45
 Value45->Entero18->NumE18
 Value45-> Value46
-Value46->Cadena14->CadenaTexto14
+Value46->Cadena24->CadenaTexto24
 Value46-> Value47
 Value47->Real18->NumR18
 Value47-> Value48
@@ -423,7 +896,7 @@ Registro10->SimbolollaveA20->llaveA20
 Registro10->listValues10->Value50
 Value50->Entero20->NumE20
 Value50-> Value51
-Value51->Cadena15->CadenaTexto15
+Value51->Cadena25->CadenaTexto25
 Value51-> Value52
 Value52->Real20->NumR20
 Value52-> Value53
@@ -436,7 +909,7 @@ Registro11->SimbolollaveA22->llaveA22
 Registro11->listValues11->Value55
 Value55->Entero22->NumE22
 Value55-> Value56
-Value56->Cadena16->CadenaTexto16
+Value56->Cadena26->CadenaTexto26
 Value56-> Value57
 Value57->Real22->NumR22
 Value57-> Value58
@@ -446,13 +919,153 @@ Value59->Entero23->NumE23
 Registro11->SimbolollaveC23->llaveC23
 Registro11-> Registro12
 Proceso_Registros-> SimboloCorchete3->CorcheteC3
-Instrucciones1-> Instrucciones2
-Instrucciones2-> Instruccion3
-Instruccion3->ProcesoImprimir0
-ProcesoImprimir0->tokenImprimir0->imprimir
-ProcesoImprimir0->SimboloparentesisA0->parentesisA0
-ProcesoImprimir0->Cadena17->CadenaText17
-ProcesoImprimir0->SimboloparentesisC1->parentesisC1
-ProcesoImprimir0->SimboloPuntoyComa2->puntoYComa2
-Instrucciones-> Instruccciones
+Instrucciones11-> Instrucciones12
+Instrucciones12-> Instruccion13
+Instruccion13->ProcesoImprimirln10
+ProcesoImprimirln10->tokenImprimirln10->imprimirln10
+ProcesoImprimirln10->SimboloparentesisA20->parentesisA20
+ProcesoImprimirln10->Cadena27->CadenaText27
+ProcesoImprimirln10->SimboloparentesisC21->parentesisC21
+ProcesoImprimirln10->SimboloPuntoyComa8->puntoYComa8
+Instrucciones12-> Instrucciones13
+Instrucciones13-> Instruccion14
+Instruccion14->ProcesoConteo11
+ProcesoConteo11->tokenConteo11->Conteo11
+ProcesoConteo11->SimboloparentesisA22->parentesisA22
+ProcesoConteo11->SimboloparentesisC23->parentesisC23
+ProcesoConteo11->SimboloPuntoyComa9->puntoYComa9
+Instrucciones13-> Instrucciones14
+Instrucciones14-> Instruccion15
+Instruccion15->ProcesoImprimirln12
+ProcesoImprimirln12->tokenImprimirln12->imprimirln12
+ProcesoImprimirln12->SimboloparentesisA24->parentesisA24
+ProcesoImprimirln12->Cadena28->CadenaText28
+ProcesoImprimirln12->SimboloparentesisC25->parentesisC25
+ProcesoImprimirln12->SimboloPuntoyComa10->puntoYComa10
+Instrucciones14-> Instrucciones15
+Instrucciones15-> Instruccion16
+Instruccion16->ProcesoPromedio13
+ProcesoPromedio13->tokenPromedio13->Promedio13
+ProcesoPromedio13->SimboloparentesisA26->parentesisA26
+ProcesoPromedio13->Cadena29->CadenaText29
+ProcesoPromedio13->SimboloparentesisC27->parentesisC27
+ProcesoPromedio13->SimboloPuntoyComa11->puntoYComa11
+Promedio13->PromedioCampo24
+Instrucciones15-> Instrucciones16
+Instrucciones16-> Instruccion17
+Instruccion17->ProcesoImprimirln14
+ProcesoImprimirln14->tokenImprimirln14->imprimirln14
+ProcesoImprimirln14->SimboloparentesisA28->parentesisA28
+ProcesoImprimirln14->Cadena30->CadenaText30
+ProcesoImprimirln14->SimboloparentesisC29->parentesisC29
+ProcesoImprimirln14->SimboloPuntoyComa12->puntoYComa12
+Instrucciones16-> Instrucciones17
+Instrucciones17-> Instruccion18
+Instruccion18->ProcesoContarSi15
+ProcesoContarSi15->tokenContarSi15->ContarSi15
+ProcesoContarSi15->SimboloparentesisA30->parentesisA30
+ProcesoContarSi15->Cadena31->CadenaText31
+ProcesoContarSi15->SimboloComa4->Coma4
+ProcesoContarSi15->SimboloparentesisC31->parentesisC31
+ProcesoContarSi15->SimboloPuntoyComa13->puntoYComa13
+Instrucciones17-> Instrucciones18
+Instrucciones18-> Instruccion19
+Instruccion19->ProcesoContarSi16
+ProcesoContarSi16->tokenContarSi16->ContarSi16
+ProcesoContarSi16->SimboloparentesisA32->parentesisA32
+ProcesoContarSi16->Cadena32->CadenaText32
+ProcesoContarSi16->SimboloComa5->Coma5
+ProcesoContarSi16->SimboloparentesisC33->parentesisC33
+ProcesoContarSi16->SimboloPuntoyComa14->puntoYComa14
+Instrucciones18-> Instrucciones19
+Instrucciones19-> Instruccion20
+Instruccion20->ProcesoContarSi17
+ProcesoContarSi17->tokenContarSi17->ContarSi17
+ProcesoContarSi17->SimboloparentesisA34->parentesisA34
+ProcesoContarSi17->Cadena33->CadenaText33
+ProcesoContarSi17->SimboloComa6->Coma6
+ProcesoContarSi17->SimboloparentesisC35->parentesisC35
+ProcesoContarSi17->SimboloPuntoyComa15->puntoYComa15
+Instrucciones19-> Instrucciones20
+Instrucciones20-> Instruccion21
+Instruccion21->ProcesoImprimirln18
+ProcesoImprimirln18->tokenImprimirln18->imprimirln18
+ProcesoImprimirln18->SimboloparentesisA36->parentesisA36
+ProcesoImprimirln18->Cadena34->CadenaText34
+ProcesoImprimirln18->SimboloparentesisC37->parentesisC37
+ProcesoImprimirln18->SimboloPuntoyComa16->puntoYComa16
+Instrucciones20-> Instrucciones21
+Instrucciones21-> Instruccion22
+Instruccion22->ProcesoDatos19
+ProcesoDatos19->tokenDatos19->Datos19
+ProcesoDatos19->SimboloparentesisA38->parentesisA38
+ProcesoDatos19->SimboloparentesisC39->parentesisC39
+ProcesoDatos19->SimboloPuntoyComa17->puntoYComa17
+Instrucciones21-> Instrucciones22
+Instrucciones22-> Instruccion23
+Instruccion23->ProcesoImprimirln20
+ProcesoImprimirln20->tokenImprimirln20->imprimirln20
+ProcesoImprimirln20->SimboloparentesisA40->parentesisA40
+ProcesoImprimirln20->Cadena35->CadenaText35
+ProcesoImprimirln20->SimboloparentesisC41->parentesisC41
+ProcesoImprimirln20->SimboloPuntoyComa18->puntoYComa18
+Instrucciones22-> Instrucciones23
+Instrucciones23-> Instruccion24
+Instruccion24->ProcesoSumar21
+ProcesoSumar21->tokenSumar21->Sumar21
+ProcesoSumar21->SimboloparentesisA42->parentesisA42
+ProcesoSumar21->Cadena36->CadenaText36
+ProcesoSumar21->SimboloparentesisC43->parentesisC43
+ProcesoSumar21->SimboloPuntoyComa19->puntoYComa19
+Sumar21->Sumatoria25
+Instrucciones23-> Instrucciones24
+Instrucciones24-> Instruccion25
+Instruccion25->ProcesoImprimirln22
+ProcesoImprimirln22->tokenImprimirln22->imprimirln22
+ProcesoImprimirln22->SimboloparentesisA44->parentesisA44
+ProcesoImprimirln22->Cadena37->CadenaText37
+ProcesoImprimirln22->SimboloparentesisC45->parentesisC45
+ProcesoImprimirln22->SimboloPuntoyComa20->puntoYComa20
+Instrucciones24-> Instrucciones25
+Instrucciones25-> Instruccion26
+Instruccion26->ProcesoMax23
+ProcesoMax23->tokenMax23->Max23
+ProcesoMax23->SimboloparentesisA46->parentesisA46
+ProcesoMax23->Cadena38->CadenaText38
+ProcesoMax23->SimboloparentesisC47->parentesisC47
+ProcesoMax23->SimboloPuntoyComa21->puntoYComa21
+Instrucciones25-> Instrucciones26
+Instrucciones26-> Instruccion27
+Instruccion27->ProcesoImprimirln24
+ProcesoImprimirln24->tokenImprimirln24->imprimirln24
+ProcesoImprimirln24->SimboloparentesisA48->parentesisA48
+ProcesoImprimirln24->Cadena39->CadenaText39
+ProcesoImprimirln24->SimboloparentesisC49->parentesisC49
+ProcesoImprimirln24->SimboloPuntoyComa22->puntoYComa22
+Instrucciones26-> Instrucciones27
+Instrucciones27-> Instruccion28
+Instruccion28->ProcesoMin25
+ProcesoMin25->tokenMin25->Min25
+ProcesoMin25->SimboloparentesisA50->parentesisA50
+ProcesoMin25->Cadena40->CadenaText40
+ProcesoMin25->SimboloparentesisC51->parentesisC51
+ProcesoMin25->SimboloPuntoyComa23->puntoYComa23
+Instrucciones27-> Instrucciones28
+Instrucciones28-> Instruccion29
+Instruccion29->ProcesoImprimirln26
+ProcesoImprimirln26->tokenImprimirln26->imprimirln26
+ProcesoImprimirln26->SimboloparentesisA52->parentesisA52
+ProcesoImprimirln26->Cadena41->CadenaText41
+ProcesoImprimirln26->SimboloparentesisC53->parentesisC53
+ProcesoImprimirln26->SimboloPuntoyComa24->puntoYComa24
+Instrucciones28-> Instrucciones29
+Instrucciones29-> Instruccion30
+Instruccion30->ProcesoExportar27
+ProcesoExportar27->tokenExportar27->Exportar27
+ProcesoExportar27->SimboloparentesisA54->parentesisA54
+ProcesoExportar27->Cadena42->CadenaText42
+ProcesoExportar27->SimboloparentesisC55->parentesisC55
+ProcesoExportar27->SimboloPuntoyComa25->puntoYComa25
+Instrucciones29-> Instrucciones30
+Instrucciones30-> Instruccion31->Fin
 }
