@@ -105,44 +105,62 @@ class AutomataLexico:
             elif estado==1:
                 if x=='\n':
                     fila+=1
+                    columna=1
                     estado=0
                 else:
                     pass
             elif estado==2:
                 if x == "'":
-                    self.listaTokens.append(Token("'", 'ComillaSimple',fila,columna))
+                    
                     columna+=1
                     estado=3
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
                     pass
+                elif x=='\n':
+                    fila+=1
+                    columna=1
+                
             elif estado==3:
                 if x == "'":
-                    self.listaTokens.append(Token("'", 'ComillaSimple',fila,columna))
+                    self.listaTokens.append(Token("'''", 'ComillaSimple',fila,columna))
                     columna+=1
                     estado=4
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
                     pass
+                elif x=='\n':
+                    fila+=1
+                    columna=1
+                else:
+                    e='Error lexico en fila '+str(fila)+' y columna '+str(columna)+" revisar"
+                    self.listaErrores.append(Errores(fila, columna, e, "ComillaSimple"))
             elif estado==4:
                 if x == "'":
-                    self.listaTokens.append(Token("'", 'ComillaSimple',fila,columna))
                     columna+=1
                     estado=5
+                elif x=='\n':
+                    fila+=1
+                    columna=1
                 else:
                     pass
             elif estado==5:
                 if x == "'":
-                    self.listaTokens.append(Token("'", 'ComillaSimple',fila,columna))
                     columna+=1
                     estado=6
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9:
                     pass
+                elif x=='\n':
+                    fila+=1
+                    columna=1
             elif estado==6:
                 if x == "'":
-                    self.listaTokens.append(Token("'", 'ComillaSimple',fila,columna))
+                    self.listaTokens.append(Token("'''", 'ComillaSimple',fila,columna))
                     columna+=1
                     estado=0
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9:
                     pass
+                elif x=='\n':
+                    fila+=1
+                    columna=1
             elif estado==7:
                 if self.isCharacter(x)==True:
                     lexema+=x

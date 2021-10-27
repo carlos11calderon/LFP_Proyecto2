@@ -25,7 +25,7 @@ Registros = [
 
 # Si se descomenta se tendría un error sintáctico, por lo que solo se debe terminar el analisis sintactico y no ejecutar nada mas :v
 # imprimirLn("El Ln con L mayusucula es el error"); 
-# sumar("El } del final son el error, ademas de que todo este campo entre comillas no existe"};
+#sumar("El } del final son el error, ademas de que todo este campo entre comillas no existe"};
 
 
 

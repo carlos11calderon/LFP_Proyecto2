@@ -117,14 +117,19 @@ class Ui_MainWindow(object):
     def Analizar(self):
      #   gestor.Analysis(self.txtCodigo.toPlainText())
         global listaTokens, listaErrores
-        self.plainTextEdit_2.clear()
-        Text = self.txtCodigo.toPlainText()
-        listaTokens = Auto.analizar(Text)
-        listaE = Auto.listE()
-        textoSalida=gestorSintactico.analizar(listaTokens,listaE)
-        listaErrores=gestorSintactico.listaErrores
-        self.plainTextEdit_2.insertPlainText(textoSalida)
-    
+        try:
+            self.plainTextEdit_2.clear()
+            Text = self.txtCodigo.toPlainText()
+            listaTokens = Auto.analizar(Text)
+            listaE = Auto.listE()
+            textoSalida=gestorSintactico.analizar(listaTokens,listaE)
+            listaErrores=gestorSintactico.listEr()
+            self.plainTextEdit_2.insertPlainText(textoSalida)
+        except:
+            listaErrores=gestorSintactico.listEr()
+            self.ReporteErrores()
+            print('Murio xd')
+
     def ReporteTokens(self):
         global listaTokens
         Archivo = open("./Reportes/Tokens.html",'w')
