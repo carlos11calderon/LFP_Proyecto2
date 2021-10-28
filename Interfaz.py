@@ -115,7 +115,6 @@ class Ui_MainWindow(object):
         self.txtCodigo.insertPlainText(Text)
 
     def Analizar(self):
-     #   gestor.Analysis(self.txtCodigo.toPlainText())
         global listaTokens, listaErrores
         try:
             self.plainTextEdit_2.clear()

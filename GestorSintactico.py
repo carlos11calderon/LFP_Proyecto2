@@ -79,8 +79,6 @@ class GestorSintactico:
         global i, NodeData, CountInstrucciones, NodosCrear, CountInstruccion, CountRegistro,CountListRegistro
         global CountProceso
         
-        
-        
         if self.listaTokens[i].lexema == 'registros':
             CountInstrucciones+=1
             CountInstruccion+=1
@@ -89,7 +87,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->Proceso_Registros\n'
             self.instruccion_Registros()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema == 'claves':
@@ -100,7 +97,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->Proceso_Claves\n'
             self.instruccion_Claves()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema == 'CommentSimple':
@@ -118,7 +114,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoImprimir'+str(CountProceso)+'\n'
             self.instruccion_Imprimir()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='imprimirln':
@@ -130,7 +125,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoImprimirln'+str(CountProceso)+'\n'
             self.instruccion_Imprimirln()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='conteo':
@@ -142,7 +136,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoConteo'+str(CountProceso)+'\n'
             self.instruccion_Conteo()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='promedio':
@@ -154,7 +147,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoPromedio'+str(CountProceso)+'\n'
             self.instruccion_Promedio()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='contarsi':
@@ -166,7 +158,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoContarSi'+str(CountProceso)+'\n'
             self.instruccion_Contarsi()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='datos':
@@ -178,7 +169,6 @@ class GestorSintactico:
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instruccion'+str(CountInstruccion)+'\n'
             NodeData+='Instruccion'+str(CountInstruccion)+'->ProcesoDatos'+str(CountProceso)+'\n'
             self.instruccion_Datos()
-            
             NodeData+='Instrucciones'+str(CountInstrucciones-1)+'-> Instrucciones'+str(CountInstrucciones)+'\n'
             self.lista_Instrucciones()
         elif self.listaTokens[i].lexema=='sumar':
@@ -459,18 +449,20 @@ class GestorSintactico:
     ## EMPIEZA LA FUNCION IMPRIMIR
     def instruccion_Imprimir(self):
         global i, ReturnText, CountSimboloIgual,contadorImprimir, NodeData, NodosCrear, CountProceso, countToken, CountSimboloPa, CountCadena
-        
+        ##inicia el comando con el token imprimir
         if self.listaTokens[i].lexema == 'imprimir':
             NodosCrear+='tokenImprimir'+str(countToken)+'[label="tokenImprimir"]\n'
             NodosCrear+='imprimir'+str(countToken)+'[label="imprimir"]\n'
             NodeData+='ProcesoImprimir'+str(CountProceso)+'->tokenImprimir'+str(countToken)+'->imprimir'+str(countToken)+'\n'
             i+=1
+            #el siguiente token es un parentesis ()
             if self.listaTokens[i].lexema == 'parentesis1':
                 NodosCrear+='SimboloparentesisA'+str(CountSimboloPa)+'[label="SimboloparentesisA"]\n'
                 NodosCrear+='parentesisA'+str(CountSimboloPa)+'[label="("]\n'
                 NodeData+='ProcesoImprimir'+str(CountProceso)+'->SimboloparentesisA'+str(CountSimboloPa)+'->parentesisA'+str(CountSimboloPa)+'\n'
                 CountSimboloPa+=1
                 i+=1
+                #el siguiente token es una comilla doble y asi sucesivamente 
                 if self.listaTokens[i].lexema == 'ComillaDoble':
                     i+=1
                     if self.listaTokens[i].token == 'cadena':
@@ -1249,7 +1241,6 @@ class GestorSintactico:
         f = open('ArchivosDots/archivoArbolDerivacion.dot', 'w', encoding='utf-8')
         edgeData=''
         graph=''
-
         contenidoDot=(
             'digraph Arbol{\n'
             '{\n'
@@ -1258,8 +1249,6 @@ class GestorSintactico:
             '}'
             +NodeData+'}'
         )
-
-
         f.write(contenidoDot)
         f.close()
         os.system("dot -Tpdf ArchivosDots/archivoArbolDerivacion.dot -o ./Reportes/Arbol_De_Derivacion.pdf")

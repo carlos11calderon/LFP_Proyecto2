@@ -34,14 +34,15 @@ class AutomataLexico:
         #inicializar listas nuevamente
         self.listaTokens = []
         self.listaErrores = []
-
         estado = 0
         fila =1
         columna=1
         lexema = ''    
         i = 0
-        while i <len(texto):
+        #principio de ciclo
+        while i <len(texto):#ciclo para recorrer el texto
             x=texto[i]
+            ## inicia lectura de simbolos
             if estado==0:
                 if x == '=':
                     self.listaTokens.append(Token("=",'igual',fila,columna))
@@ -102,6 +103,7 @@ class AutomataLexico:
                 else:
                     e='Error lexico en fila '+str(fila)+' y columna '+str(columna)+" revisar"
                     self.listaErrores.append(Errores(fila, columna, e, "Simbolo, letra o digito"))
+            ## Aqui termina la lectura de simbolos o entradas para la lectura de comandos
             elif estado==1:
                 if x=='\n':
                     fila+=1
@@ -111,7 +113,6 @@ class AutomataLexico:
                     pass
             elif estado==2:
                 if x == "'":
-                    
                     columna+=1
                     estado=3
                 elif ord(x) == 32 or ord(x) == 10 or ord(x) == 9: 
@@ -119,7 +120,6 @@ class AutomataLexico:
                 elif x=='\n':
                     fila+=1
                     columna=1
-                
             elif estado==3:
                 if x == "'":
                     self.listaTokens.append(Token("'''", 'ComillaSimple',fila,columna))
@@ -209,7 +209,6 @@ class AutomataLexico:
                     lexema=''
                     estado=0
                     i-=1
-                
             elif estado==11:
                 if self.isLetter(x)==True:
                     lexema+=x
@@ -245,8 +244,6 @@ class AutomataLexico:
                     i-=1
                     estado=0
             i+=1
-        ##print('ultimo token--->'+self.listaTokens[473].lexema)
-        #print(self.listaTokens[526].lexema)
         return self.listaTokens
 
     def listE(self):
