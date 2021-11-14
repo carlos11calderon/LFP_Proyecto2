@@ -1,4 +1,4 @@
-# LFP_Proyecto2_201905515
+# LFP_Proyecto2
 En este repositorio se trabajará el proyecto 2 de Lenguajes Formales y de Programación, segundo semestre 2021
 
 |   #   |   Token   |   Descripcion   |   Tipo de Dato   |  ER   |
